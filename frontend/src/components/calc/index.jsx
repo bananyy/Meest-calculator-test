@@ -4,6 +4,7 @@ import { Person } from "./person";
 import { Carousel } from "./carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import '../../styles/CalcSection.css'
 
 const personTypes = ["men", "women", "child"];
 const bodyParts = ["none", "head", "top", "lower"];
@@ -103,7 +104,7 @@ export function CalcSection() {
         <h2 className="text-center sm:text-sm-h text-base-h">
           Калькулятор розмірів
         </h2>
-        <div className="flex items-end my-4 flex-col w-full gap-2 absolute right-7">
+        <div className="flex items-end my-4 flex-col w-full gap-2 absolute right-7 selectsPerson">
           <select
             value={selectedBodyPart}
             onChange={(event) => handlePartChange(event.target.value)}
@@ -140,7 +141,7 @@ export function CalcSection() {
             </select>
           )}
         </div>
-        <div className="flex justify-between gap-16 items-end mt-24">
+        <div className="flex justify-between gap-16 items-end mt-24 personElements">
           {personTypeElements}
         </div>
         {/* <Carousel>{personTypeElements}</Carousel> */}
