@@ -4,7 +4,6 @@ import { Person } from "./person";
 import { Carousel } from "./carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import '../../styles/CalcSection.css'
 
 const personTypes = ["men", "women", "child"];
 const bodyParts = ["none", "head", "top", "lower"];
