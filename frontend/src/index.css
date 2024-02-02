@@ -144,3 +144,33 @@ textarea:focus, input:focus{
 .carousel .control-dots{
     display: none;
 }
+
+@media (max-width:425px) {
+    .personElements {
+        flex-wrap: wrap;
+        margin: 0px !important;
+    }
+
+    .select-base {
+        width: 80% !important;
+    }
+
+    .selectsPerson {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: static !important;
+        margin-right: 0px !important;
+    }
+
+    .item {
+        width: 80% !important;
+    }
+}
+
+@media (max-width:380px) {
+    .item {
+        width: 60% !important;
+    }
+}
