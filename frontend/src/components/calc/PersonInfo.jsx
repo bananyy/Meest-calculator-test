@@ -1,31 +1,29 @@
 import React from "react";
 import inputPositions from "./inputPositions";
 
-export function Person(props) {
-  const { type, part, inputData, isSelected, onClick, onChange, stylesType} = props;
+export function PersonInfo(props) {
+  const { type, part, inputData, isSelected, onClick, onChange, stylesType } = props;
 
   const typePositions = inputPositions[type];
   const partPositions = typePositions[part];
   const inputNames = partPositions ? Object.keys(partPositions) : [];
 
-
-  if(typeof selectedType === 'undefined') {
-    var selectedType;
-  }
-
-
   return (
-    <div className={`item ${isSelected ? "selected-person" : ""} ${stylesType} ${part != "none" ? 'translate-left' : ""}`}>
+    <div
+      className={`item ${isSelected ? "selected-person" : ""} ${stylesType} ${
+        part != "none" ? "translate-left" : ""
+      }`}
+    >
       <button className="h-full flex items-end m-auto" onClick={onClick}>
         <div className="relative">
           <img
-            src={`/src/images/${type}.png`}
+            src={`${import.meta.env.BASE_URL}/images/${type}.png`}
             className={`object-contain person-img ${isSelected ? "selected" : "not-selected"}`}
           />
           {isSelected && part != "none" && (
             <>
               <img
-                src={`/src/images/${type}/desc_${part}.png`}
+                src={`${import.meta.env.BASE_URL}/images/${type}/desc_${part}.png`}
                 className="absolute desc-abs appear-animation"
               />
 

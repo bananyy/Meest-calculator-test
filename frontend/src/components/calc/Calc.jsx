@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "../button/Button";
-import { Person } from "./Person";
+import { PersonInfo } from "./PersonInfo";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Slider } from "./Slider";
 import dataNames from "./dataNames";
@@ -63,7 +63,7 @@ export function CalcSection() {
 
   const personTypeElements = () => {
     return dataNames.personTypes.map((type) => (
-      <Person
+      <PersonInfo
         key={type}
         type={type}
         part={selectedBodyPart}
