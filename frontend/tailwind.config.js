@@ -9,6 +9,7 @@ export default {
       'xl': '1210px',
       'md': '768px',
       'sm': {'max': '768px'},
+      'xs': {'max': '320px'}
 
     },
     extend: {

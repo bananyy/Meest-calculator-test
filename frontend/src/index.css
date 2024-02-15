@@ -192,7 +192,7 @@ textarea:focus, input:focus{
     .item{
         height: 470px;
     }
-  }
+}
 
 @media screen and (max-width: 768px) {
     .not-selected{
@@ -223,4 +223,18 @@ textarea:focus, input:focus{
     .btn-choose-active{
         margin-left: unset;
     }
-  }
+}
+
+@media screen and (max-width: 375px) {
+    .person-img{
+        width: 100px !important;
+    }
+
+    .item{
+        height: 350px;
+    }
+
+    .translate-left{
+        margin-left: -50px;
+    }
+}
