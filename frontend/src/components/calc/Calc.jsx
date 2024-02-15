@@ -94,7 +94,7 @@ export function CalcSection() {
     <>
       <div className="bg-grey w-full rounded-lg py px-28 py-8 mt-20 mb-8 sm:px-5 md:px-16 relative">
         <h2 className="text-center sm:text-sm-h text-base-h">Калькулятор розмірів</h2>
-        <div className="flex items-end flex-col gap-3 my-4 md:right-5 absolute sm:flex-row sm:text-sm-p sm:justify-center sm:w-11/12">
+        <div className="flex items-end flex-col gap-3 my-4 md:right-5 absolute sm:flex-row sm:text-sm-p sm:justify-center sm:w-11/12 flex-wrap" >
           <CustomSelect
             value={selectedBodyPart}
             onChange={handlePartChange}
