@@ -93,6 +93,9 @@ p {
     top: 0;
     height: 100%;
     max-width: unset;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .appear-animation {
