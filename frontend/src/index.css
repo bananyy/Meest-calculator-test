@@ -229,6 +229,12 @@ textarea:focus, input:focus{
     }
     .btn-choose-active{
         margin-left: unset;
+        color: hsl(0, 0%, 0%) !important;
+        background-color: unset !important;
+    }
+
+    .btn-choose{
+        color: #686868;
     }
 }
 

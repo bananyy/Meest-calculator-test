@@ -10,10 +10,10 @@ const SwitchInfo = () => {
   };
 
   return (
-    <div className="w-full flex justify-between py-10 pl-6 gap-5 sm:flex-col sm:py-5 sm:gap-2">
-      <div className="flex flex-col w-4/12 sm:w-full text-left sm:flex-row sm:w-unset sm:justify-around">
+    <div className="w-full flex justify-between py-10 pl-6 gap-5 sm:flex-col sm:py-5 sm:gap-2 sm:pl-3">
+      <div className="flex flex-col w-4/12 sm:w-full text-left sm:flex-row sm:w-unset sm:justify-around flex-wrap">
         <button
-          className={`sm:hidden ${getButtonClassName("info")}`}
+          className={`${getButtonClassName("info")} !w-full`}
           onClick={() => setActiveCategory("info")}
         >
           Як правильно зняти мірки
