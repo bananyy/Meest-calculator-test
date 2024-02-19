@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Button } from "../button/Button";
+import { Button } from "../Button/Button";
 import { PersonInfo } from "./PersonInfo";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Slider } from "./Slider";
 import dataNames from "./dataNames";
 
-export function CalcSection() {
+export default function CalcSection() {
   const [selectedType, setSelectedType] = useState(dataNames.personTypes[0]);
   const [selectedBodyPart, setSelectedBodyPart] = useState(dataNames.bodyParts[0]);
   const [selectedBrand, setSelectedBrand] = useState(dataNames.brands[0]);
@@ -92,9 +92,9 @@ export function CalcSection() {
 
   return (
     <>
-      <div className="bg-grey w-full rounded-lg py px-28 py-8 mt-20 mb-8 sm:px-5 md:px-16 relative">
-        <h2 className="text-center sm:text-sm-h text-base-h">Калькулятор розмірів</h2>
-        <div className="flex items-end flex-col gap-3 my-4 md:right-5 absolute sm:flex-row sm:text-sm-p sm:justify-center sm:w-11/12 flex-wrap" >
+      <div className="w-full bg-[#EFF1F4] rounded-[40px] py-8 relative px-6 md:px-8 lg:px-16 xl:px-24 shadow-box my-8">
+        <h2 className="text-center text-sm-h md:text-md-h lg:text-lg-h">Калькулятор розмірів</h2>
+        <div className="text-sm-p md:text-md-p lg:text-lg-p flex absolute justify-around mt-4 w-11/12 md:flex-col md:gap-2 md:items-end md:right-10">
           <CustomSelect
             value={selectedBodyPart}
             onChange={handlePartChange}
@@ -116,7 +116,7 @@ export function CalcSection() {
             />
           )}
         </div>
-        <div className="flex items-end mt-[120px] sm:hidden">{personTypeElements()}</div>
+        <div className="flex items-end mt-[120px] max-md:hidden">{personTypeElements()}</div>
 
         <div className="mt-[60px] md:hidden">
           <Slider

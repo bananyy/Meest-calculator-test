@@ -22,6 +22,7 @@ input::-webkit-inner-spin-button {
 
 body {
     font-family: Montserrat;
+    color: #303A45;
 }
 
 h2 {
@@ -32,11 +33,6 @@ p {
     letter-spacing: 0.32px;
     font-weight: 500;
   }
-
-/* .menu-buttons{
-    display: flex;
-    flex-direction: column;
-} */
 
 .btn-choose{
     font-size: 17px;
@@ -71,7 +67,7 @@ p {
 .item{
     transition: 0.5s all;
     width: 15%;
-    height: 550px;
+    height: 500px;
 }
 
 .selected {
@@ -147,7 +143,7 @@ textarea:focus, input:focus{
 }
 
 .select-base{
-    border-radius: 10px;
+    border-radius: 50px;
     font-weight: 600;
     padding: 2px 5px;
     border: 2px solid grey;
@@ -173,6 +169,14 @@ textarea:focus, input:focus{
     justify-content: center;
     align-items: center;
     font-size: 15px;
+}
+
+.shadow-box{
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.199);
+}
+
+#brands-section{
+    background: linear-gradient(180deg, #F3F8FE 0%, rgb(255, 255, 255) 100%);
 }
 
 
