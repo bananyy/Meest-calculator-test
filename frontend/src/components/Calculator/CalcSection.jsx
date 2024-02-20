@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "../Button/Button";
+import { Button } from "../button/Button";
 import { PersonInfo } from "./PersonInfo";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Slider } from "./Slider";
