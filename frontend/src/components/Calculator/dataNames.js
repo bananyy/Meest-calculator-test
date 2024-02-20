@@ -11,6 +11,11 @@ const dataNames = {
     "singlet",
     "jacket",
   ],
+  lowCl: [
+    "none",
+    'idk',
+    'idk2',
+  ],
   translateBodyParts: {
     none: "Категорії",
     head: "Головний убір",
@@ -35,6 +40,12 @@ const dataNames = {
     sweatshirt: "Світшоти",
     singlet: "Майки",
     jacket: "Піджаки",
+  },
+
+  translateLowCl: {
+    none: "Тип одягу",
+    idk: "first",
+    idk2: "second",
   },
 };
 

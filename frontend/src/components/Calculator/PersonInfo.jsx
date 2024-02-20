@@ -2,7 +2,7 @@ import React from "react";
 import inputPositions from "./inputPositions";
 
 export function PersonInfo(props) {
-  const { type, part, inputData, isSelected, onClick, onChange, stylesType } = props;
+  const { type, part, inputData, isSelected, onClick, onChange } = props;
 
   const typePositions = inputPositions[type];
   const partPositions = typePositions[part];
@@ -10,7 +10,7 @@ export function PersonInfo(props) {
 
   return (
     <div
-      className={`item ${isSelected ? "selected-person" : ""} ${stylesType} ${
+      className={`item ${isSelected ? "selected-person" : ""} ${
         part != "none" ? "translate-left" : ""
       }`}
     >
