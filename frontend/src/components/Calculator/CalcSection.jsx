@@ -10,6 +10,7 @@ export default function CalcSection() {
   const [selectedBodyPart, setSelectedBodyPart] = useState(dataNames.bodyParts[0]);
   const [selectedBrand, setSelectedBrand] = useState(dataNames.brands[0]);
   const [selectedTopCl, setSelectedTopCl] = useState(dataNames.topCl[0]);
+  const [selectedLowCl, setSelectedLowCl] = useState(dataNames.lowCl[0]);
   const [inputData, setInputData] = useState({});
 
   const handleSelectionChange = (newValue, setSelectedValue) => {
@@ -30,6 +31,9 @@ export default function CalcSection() {
   const handleTopClChange = (topCl) => {
     handleSelectionChange(topCl, setSelectedTopCl);
   };
+  const handleLowClChange = (topCl) => {
+    handleSelectionChange(topCl, setSelectedLowCl);
+  };
 
   const handleInputChange = (name, value) => {
     setInputData((prevState) => {
@@ -41,25 +45,25 @@ export default function CalcSection() {
     handleTypeClick(dataNames.personTypes[item]);
   };
 
-  const stylesType = (currType) => {
-    if (selectedType == "men") {
-      if (currType == "women") {
-        return "ml-auto";
-      }
-    } else if (selectedType == "women") {
-      if (currType == "men") {
-        return "mr-auto";
-      } else if (currType == "child") {
-        return "ml-auto";
-      }
-    } else if (selectedType == "child") {
-      if (currType == "women") {
-        return "mr-auto";
-      }
-    } else {
-      return "";
-    }
-  };
+  // const stylesType = (currType) => {
+  //   if (selectedType == "men") {
+  //     if (currType == "women") {
+  //       return "ml-auto";
+  //     }
+  //   } else if (selectedType == "women") {
+  //     if (currType == "men") {
+  //       return "mr-auto";
+  //     } else if (currType == "child") {
+  //       return "ml-auto";
+  //     }
+  //   } else if (selectedType == "child") {
+  //     if (currType == "women") {
+  //       return "mr-auto";
+  //     }
+  //   } else {
+  //     return "";
+  //   }
+  // };
 
   const personTypeElements = () => {
     return dataNames.personTypes.map((type) => (
@@ -71,7 +75,7 @@ export default function CalcSection() {
         onClick={() => handleTypeClick(type)}
         onChange={handleInputChange}
         isSelected={selectedType === type}
-        stylesType={stylesType(type)}
+        // stylesType={stylesType(type)}
       />
     ));
   };
@@ -114,6 +118,14 @@ export default function CalcSection() {
                 onChange={handleTopClChange}
                 options={dataNames.topCl}
                 translateMap={dataNames.translateTopCl}
+              />
+            )}
+            {selectedBodyPart === "lower" && (
+              <CustomSelect
+                value={selectedLowCl}
+                onChange={handleLowClChange}
+                options={dataNames.lowCl}
+                translateMap={dataNames.translateLowCl}
               />
             )}
           </div>
