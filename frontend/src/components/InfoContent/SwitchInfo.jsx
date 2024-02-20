@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import instructions from "./instructions";
 
-const SwitchInfo = () => {
+export function SwitchInfo() {
   const [activeCategory, setActiveCategory] = useState("info");
 
   const categories = [
@@ -37,5 +37,3 @@ const SwitchInfo = () => {
     </div>
   );
 };
-
-export default SwitchInfo;

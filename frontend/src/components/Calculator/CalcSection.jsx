@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Slider } from "./Slider";
 import dataNames from "./dataNames";
 
-export default function CalcSection() {
+export function CalcSection() {
   const [selectedType, setSelectedType] = useState(dataNames.personTypes[0]);
   const [selectedBodyPart, setSelectedBodyPart] = useState(dataNames.bodyParts[0]);
   const [selectedBrand, setSelectedBrand] = useState(dataNames.brands[0]);
