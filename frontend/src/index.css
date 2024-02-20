@@ -176,7 +176,7 @@ textarea:focus, input:focus{
 }
 
 #brands-section{
-    background: linear-gradient(180deg, #F3F8FE 0%, rgb(255, 255, 255) 30%);
+    background: linear-gradient(180deg, #F3F8FE 70%, rgb(255, 255, 255) 100%);
 }
 
 
@@ -196,11 +196,6 @@ textarea:focus, input:focus{
     }
 }
 
-@media screen and (max-width: 1024px) {
-    .not-selected{
-        transform: scale(0.6) !important;
-    }
-}
 
 @media screen and (max-width: 767.98px) {
     .not-selected{
