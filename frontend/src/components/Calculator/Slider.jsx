@@ -13,7 +13,7 @@ export function Slider({ children, onChange, selectedItem, displayItems, loop })
         centerMode
         infiniteLoop={loop}
         preventMovementUntilSwipeScrollTolerance={true}
-        swipeScrollTolerance={50}
+        swipeScrollTolerance={20}
         renderArrowPrev={(clickHandler, hasPrev) => {
           return (
             <div

@@ -92,56 +92,58 @@ export default function CalcSection() {
 
   return (
     <>
-      <div className="w-full bg-[#EFF1F4] rounded-[40px] py-8 relative px-6 md:px-8 lg:px-16 xl:px-24 shadow-box my-8">
-        <h2 className="text-center text-sm-h md:text-md-h lg:text-lg-h">Калькулятор розмірів</h2>
-        <div className="text-sm-p md:text-md-p lg:text-lg-p flex absolute justify-around mt-4 w-11/12 md:flex-col md:gap-2 md:items-end md:right-10">
-          <CustomSelect
-            value={selectedBodyPart}
-            onChange={handlePartChange}
-            options={dataNames.bodyParts}
-            translateMap={dataNames.translateBodyParts}
-          />
-          <CustomSelect
-            value={selectedBrand}
-            onChange={handleBrandChange}
-            options={dataNames.brands}
-            translateMap={dataNames.translateBrands}
-          />
-          {selectedBodyPart === "top" && (
+      <div className="flex flex-col items-center py-10 w-full">
+        <div className="w-full bg-[#EFF1F4] rounded-[40px] py-8 relative px-3 sm:px-6 md:px-8 lg:px-16 xl:px-24 shadow-box my-8">
+          <h2 className="text-center text-sm-h md:text-md-h lg:text-lg-h">Калькулятор розмірів</h2>
+          <div className="text-sm-p md:text-md-p lg:text-lg-p flex absolute flex-wrap gap-2 justify-around mt-4 left-5 right-5 md:flex-col md:items-end md:right-10">
             <CustomSelect
-              value={selectedTopCl}
-              onChange={handleTopClChange}
-              options={dataNames.topCl}
-              translateMap={dataNames.translateTopCl}
+              value={selectedBodyPart}
+              onChange={handlePartChange}
+              options={dataNames.bodyParts}
+              translateMap={dataNames.translateBodyParts}
             />
-          )}
-        </div>
-        <div className="flex items-end mt-[120px] max-md:hidden">{personTypeElements()}</div>
+            <CustomSelect
+              value={selectedBrand}
+              onChange={handleBrandChange}
+              options={dataNames.brands}
+              translateMap={dataNames.translateBrands}
+            />
+            {selectedBodyPart === "top" && (
+              <CustomSelect
+                value={selectedTopCl}
+                onChange={handleTopClChange}
+                options={dataNames.topCl}
+                translateMap={dataNames.translateTopCl}
+              />
+            )}
+          </div>
+          <div className="flex items-end mt-[120px] max-md:hidden">{personTypeElements()}</div>
 
-        <div className="mt-[60px] md:hidden">
-          <Slider
-            onChange={handleCarouselChange}
-            selectedItem={dataNames.personTypes.indexOf(selectedType)}
-            displayItems={1}
-            loop={false}
-          >
-            {personTypeElements()}
-          </Slider>
+          <div className="mt-[60px] md:hidden">
+            <Slider
+              onChange={handleCarouselChange}
+              selectedItem={dataNames.personTypes.indexOf(selectedType)}
+              displayItems={1}
+              loop={false}
+            >
+              {personTypeElements()}
+            </Slider>
+          </div>
         </div>
+        <Button
+          onClick={() =>
+            console.log({
+              type: selectedType,
+              bodyPart: selectedBodyPart,
+              data: inputData,
+              brand: selectedBrand,
+              clothes: selectedTopCl,
+            })
+          }
+        >
+          Розрахувати
+        </Button>
       </div>
-      <Button
-        onClick={() =>
-          console.log({
-            type: selectedType,
-            bodyPart: selectedBodyPart,
-            data: inputData,
-            brand: selectedBrand,
-            clothes: selectedTopCl,
-          })
-        }
-      >
-        Розрахувати
-      </Button>
     </>
   );
 }

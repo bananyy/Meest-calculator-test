@@ -17,11 +17,13 @@ const SwitchInfo = () => {
         Який Розмір Ви Носите?
       </h2>
       <div className="flex flex-col md:flex-row md:justify-between">
-        <div className="flex w-full flex-row flex-wrap justify-center md:flex-col md:w-5/12 md:ml-[20px]">
+        <div className="flex w-full flex-row flex-wrap justify-center my-3 md:justify-start md:flex-col md:w-5/12 md:ml-[20px]">
           {categories.map(({ label, value }) => (
             <button
               key={value}
-              className={`btn-choose ${activeCategory === value ? "btn-choose-active" : ""}`}
+              className={`btn-choose text-sm-p md:text-md-p lg:text-lg-p ${
+                activeCategory === value ? "btn-choose-active" : ""
+              }`}
               onClick={() => setActiveCategory(value)}
             >
               {label}

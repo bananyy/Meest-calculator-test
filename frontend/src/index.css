@@ -79,7 +79,7 @@ p {
   
 .not-selected {
     transform-origin: bottom;
-    transform: scale(0.5);
+    transform: scale(0.6);
     opacity: 0.5;
     transition: 0.5s all;
 }
@@ -147,7 +147,7 @@ textarea:focus, input:focus{
     font-weight: 600;
     padding: 2px 5px;
     border: 2px solid grey;
-    width: 220px;
+    width: 210px;
     
 }
 
@@ -176,7 +176,7 @@ textarea:focus, input:focus{
 }
 
 #brands-section{
-    background: linear-gradient(180deg, #F3F8FE 0%, rgb(255, 255, 255) 100%);
+    background: linear-gradient(180deg, #F3F8FE 0%, rgb(255, 255, 255) 30%);
 }
 
 
@@ -196,12 +196,9 @@ textarea:focus, input:focus{
     }
 }
 
-@media screen and (max-width: 1210px) {
-    .person-img{
-        width: 150px;
-    }
-    .item{
-        height: 470px;
+@media screen and (max-width: 1024px) {
+    .not-selected{
+        transform: scale(0.6) !important;
     }
 }
 
@@ -210,7 +207,7 @@ textarea:focus, input:focus{
         transform: scale(1) !important;
     }
     .select-base{
-        width: 100px;
+        width: unset;
     }
     .item{
         height: 500px;

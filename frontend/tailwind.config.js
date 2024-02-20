@@ -43,7 +43,7 @@ export default {
           "@screen xl": {
             maxWidth: "1210px",
           },
-          "@screen lg": {
+          "@screen md": {
             padding: "0 2rem",
           },
         },
