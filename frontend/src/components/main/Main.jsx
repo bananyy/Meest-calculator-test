@@ -1,5 +1,4 @@
 import React from "react";
-import { Wrapper } from "../Wrapper/Wrapper";
 import DescriptionInfo from "../InfoContent/DescriptonInfo";
 import BrandsInfo from "../InfoContent/BrandsInfo";
 import SwitchInfo from "../InfoContent/SwitchInfo";
@@ -9,26 +8,26 @@ export function MainSection() {
   return (
     <>
       <section className="bg-[#F3F8FE]">
-        <Wrapper>
+      <div className="container mx-auto">
           <DescriptionInfo></DescriptionInfo>
-        </Wrapper>
+        </div>
       </section>
       <section id="brands-section">
-        <Wrapper>
+        <div className="container mx-auto">
           <BrandsInfo></BrandsInfo>
-        </Wrapper>
-      </section>
-      <section className="bg-[#E5E7EA]">
-        <div className="bg-white rounded-b-[40px] lg:rounded-b-[80px]">
-          <Wrapper>
-            <SwitchInfo />
-          </Wrapper>
         </div>
       </section>
       <section className="bg-[#E5E7EA]">
-        <Wrapper>
+        <div className="bg-white rounded-b-[40px] lg:rounded-b-[80px]">
+          <div className="container mx-auto">
+            <SwitchInfo />
+          </div>
+        </div>
+      </section>
+      <section className="bg-[#E5E7EA]">
+        <div className="container mx-auto">
           <CalcSection />
-        </Wrapper>
+        </div>
       </section>
     </>
   );
