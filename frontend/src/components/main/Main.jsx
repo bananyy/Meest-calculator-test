@@ -1,8 +1,8 @@
 import React from "react";
-import DescriptionInfo from "../infoContent/DescriptonInfo";
-import BrandsInfo from "../infoContent/BrandsInfo";
-import SwitchInfo from "../infoContent/SwitchInfo";
-import CalcSection from "../calculator/CalcSection";
+import { DescriptionInfo } from "../infoContent/DescriptonInfo";
+import { BrandsInfo } from "../infoContent/BrandsInfo";
+import { SwitchInfo } from "../infoContent/SwitchInfo";
+import { CalcSection } from "../calculator/CalcSection";
 
 export function MainSection() {
   return (

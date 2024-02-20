@@ -1,6 +1,6 @@
 import React from "react";
 
-const BrandsInfo = () => {
+export function BrandsInfo() {
   return (
     <>
       <h2 className="text-sm-h sm:text-md-h lg:text-[70px] text-mainblue">Бренди</h2>
@@ -10,4 +10,3 @@ const BrandsInfo = () => {
   );
 };
 
-export default BrandsInfo;

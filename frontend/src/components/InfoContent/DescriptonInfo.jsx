@@ -1,6 +1,6 @@
 import React from "react";
 
-const DescriptionInfo = () => {
+export function DescriptionInfo() {
   return (
     <div className="w-full flex justify-between relative my-8">
       <div className="max-w-[530px] text-center mt-[180px] sm:mt-[200px]">
@@ -21,5 +21,3 @@ const DescriptionInfo = () => {
     </div>
   );
 };
-
-export default DescriptionInfo;
