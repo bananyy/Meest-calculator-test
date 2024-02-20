@@ -31,7 +31,7 @@ const SwitchInfo = () => {
           ))}
         </div>
         <div className="instructions text-sm-p sm:text-md-p lg:text-lg-p md:w-6/12 mt-5">
-          {instructions[activeCategory]}
+          <p class="text-[#000000]">{instructions[activeCategory]}</p>
         </div>
       </div>
     </div>
