@@ -13,7 +13,7 @@ const SwitchInfo = () => {
 
   return (
     <div className="w-full py-10 mb-20">
-      <h2 className="text-center text-sm-h sm:text-md-h lg:text-lg-h md:mb-14">
+      <h2 className="text-center text-sm-h sm:text-md-h lg:text-lg-h md:mb-14 text-[#303a45]">
         Який Розмір Ви Носите?
       </h2>
       <div className="flex flex-col md:flex-row md:justify-between">
