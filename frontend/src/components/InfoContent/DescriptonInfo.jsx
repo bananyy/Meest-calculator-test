@@ -2,7 +2,7 @@ import React from "react";
 
 const DescriptionInfo = () => {
   return (
-    <div className="w-full flex justify-between relative my-8">
+    <div className="w-full flex-row-reverse flex sm:flex-col justify-between py-10h h-[550px]">
       <div className="max-w-[530px] text-center mt-[180px] sm:mt-[200px]">
         <h2 className="text-sm-h sm:text-md-h lg:text-lg-h w-9/12 md:w-full text-[#303a45]">
           Про Наш Продукт
