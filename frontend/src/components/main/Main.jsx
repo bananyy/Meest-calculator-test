@@ -9,12 +9,12 @@ export function MainSection() {
     <>
       <section className="bg-[#F3F8FE]">
       <div className="container mx-auto">
-          <DescriptionInfo></DescriptionInfo>
+          <DescriptionInfo />
         </div>
       </section>
       <section id="brands-section">
         <div className="container mx-auto">
-          <BrandsInfo></BrandsInfo>
+          <BrandsInfo />
         </div>
       </section>
       <section className="bg-[#E5E7EA]">
