@@ -16,7 +16,7 @@ export function Button({
         boxShadow: `0 0 1px 5px ${bordercolor}`,
         width: "10rem",
         height: "2.8rem",
-        "border-radius": "100px",
+        borderRadius: "100px",
         color: "white",
       }}
     >

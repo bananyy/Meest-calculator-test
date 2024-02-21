@@ -28,8 +28,13 @@ export function MultiSlider({ children }) {
     } = rest;
     // onMove means if dragging or swiping in progress.
     return (
-      <button onClick={() => onClick()} className={`absolute ${side == 'right' ? 'right-[5%]' : 'left-[5%]'}`}>
-        <div className={`carousel-arrow max-sm:w-[30px] max-sm:h-[30px] border-[#646B74]`}>
+      <button
+        onClick={() => onClick()}
+        className={`absolute ${side == "right" ? "right-[5%]" : "left-[5%]"}`}
+      >
+        <div
+          className={`carousel-arrow sm:border-[3px] opacity-50 hover:opacity-100 max-sm:w-[25px] max-sm:h-[25px] border-[#646B74]`}
+        >
           <i className={`fa-solid fa-angle-${side} text-[#646B74]`}></i>
         </div>
       </button>
@@ -46,6 +51,8 @@ export function MultiSlider({ children }) {
       draggable={false}
       customRightArrow={<CustomArrow side={"right"} />}
       customLeftArrow={<CustomArrow side={"left"} />}
+      autoPlay
+      autoPlaySpeed={5000}
     >
       {children}
     </Carousel>
