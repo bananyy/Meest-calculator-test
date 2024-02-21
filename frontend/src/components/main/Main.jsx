@@ -8,12 +8,12 @@ export function MainSection() {
   return (
     <>
       <section className="bg-[#F3F8FE]">
-      <div className="container mx-auto">
+        <div className="container mx-auto">
           <DescriptionInfo />
         </div>
       </section>
       <section id="brands-section">
-        <div className="container mx-auto">
+        <div className="mx-auto flex flex-col items-center">
           <BrandsInfo />
         </div>
       </section>

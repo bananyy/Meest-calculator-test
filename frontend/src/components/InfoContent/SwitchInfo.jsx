@@ -12,7 +12,7 @@ export function SwitchInfo() {
   ];
 
   return (
-    <div className="w-full py-10 mb-20">
+    <div className="w-full mt-14 mb-24">
       <h2 className="text-center text-sm-h sm:text-md-h lg:text-lg-h md:mb-14">
         Який Розмір Ви Носите?
       </h2>
@@ -36,4 +36,4 @@ export function SwitchInfo() {
       </div>
     </div>
   );
-};
+}

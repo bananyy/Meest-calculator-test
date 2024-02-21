@@ -176,7 +176,11 @@ textarea:focus, input:focus{
 }
 
 #brands-section{
-    background: linear-gradient(180deg, #F3F8FE 70%, rgb(255, 255, 255) 100%);
+    background: linear-gradient(180deg, #F3F8FE 0%, rgb(255, 255, 255) 100%);
+}
+
+.react-multi-carousel-list {
+    position: unset;
 }
 
 
