@@ -10,7 +10,7 @@ export function PersonInfo(props) {
 
   return (
     <div
-      className={`item ${isSelected ? "selected-person" : ""} ${
+      className={`item-person-block ${isSelected ? "selected-person" : ""} ${
         part != "none" ? "translate-left" : ""
       }`}
     >
@@ -18,20 +18,22 @@ export function PersonInfo(props) {
         <div className="relative">
           <img
             src={`${import.meta.env.BASE_URL}/images/${type}.png`}
-            className={`object-contain person-img ${isSelected ? "selected" : "not-selected"}`}
+            className={`object-contain person-img ${
+              isSelected ? "selected-person-block" : "non-selected-person-block"
+            }`}
           />
           {isSelected && part != "none" && (
             <>
               <img
                 src={`${import.meta.env.BASE_URL}/images/${type}/desc_${part}.png`}
-                className="absolute desc-abs appear-animation"
+                className="absolute green-diagram-img appear-animation"
               />
 
               {inputNames.map((name) => (
                 <input
                   key={name}
                   type="text"
-                  className="input-base appear-animation "
+                  className="input-green-diagram appear-animation "
                   name={name}
                   value={inputData[name]}
                   onClick={(event) => event.stopPropagation()}

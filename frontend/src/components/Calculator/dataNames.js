@@ -2,20 +2,8 @@ const dataNames = {
   personTypes: ["men", "women", "child"],
   bodyParts: ["none", "head", "top", "lower"],
   brands: ["none", "Zara", "6pm", "YOOX", "allegro", "Pull&Bear", "asos"],
-  topCl: [
-    "none",
-    "tshirt",
-    "sweater",
-    "shirt",
-    "sweatshirt",
-    "singlet",
-    "jacket",
-  ],
-  lowCl: [
-    "none",
-    'idk',
-    'idk2',
-  ],
+  topCl: ["none", "tshirt", "sweater", "shirt", "sweatshirt", "singlet", "jacket"],
+  lowCl: ["none", "jeens", "skirts", "shorts", "pants"],
   translateBodyParts: {
     none: "Категорії",
     head: "Головний убір",
@@ -44,8 +32,10 @@ const dataNames = {
 
   translateLowCl: {
     none: "Тип одягу",
-    idk: "first",
-    idk2: "second",
+    jeens: "Джинси",
+    skirts: "Спідниці",
+    shorts: "Шорти",
+    pants: "Брюки",
   },
 };
 

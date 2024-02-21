@@ -84,7 +84,7 @@ export function CalcSection() {
     <select
       value={value}
       onChange={(event) => onChange(event.target.value)}
-      className="select-base"
+      className="calc-option-bar"
     >
       {options.map((item) => (
         <option key={item} value={item}>
@@ -97,7 +97,7 @@ export function CalcSection() {
   return (
     <>
       <div className="flex flex-col items-center py-10 w-full">
-        <div className="w-full bg-[#EFF1F4] rounded-[40px] py-8 relative px-3 sm:px-6 md:px-8 lg:px-16 xl:px-24 shadow-box my-8">
+        <div className="w-full bg-[#EFF1F4] rounded-[40px] py-8 relative px-3 sm:px-6 md:px-8 lg:px-16 xl:px-24 calc-shadow-box my-8">
           <h2 className="text-center text-sm-h sm:text-md-h lg:text-lg-h">Калькулятор розмірів</h2>
           <div className="text-sm-p sm:text-md-p lg:text-lg-p flex absolute flex-wrap gap-2 justify-around mt-4 left-5 right-5 md:flex-col md:items-end md:right-10">
             <CustomSelect

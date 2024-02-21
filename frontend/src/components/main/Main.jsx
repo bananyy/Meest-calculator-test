@@ -7,24 +7,24 @@ import { CalcSection } from "../Calculator/CalcSection";
 export function MainSection() {
   return (
     <>
-      <section className="bg-[#F3F8FE]">
-      <div className="container mx-auto">
+      <section id="about-section">
+        <div className="container mx-auto">
           <DescriptionInfo />
         </div>
       </section>
       <section id="brands-section">
-        <div className="container mx-auto">
+        <div className="mx-auto flex flex-col items-center">
           <BrandsInfo />
         </div>
       </section>
-      <section className="bg-[#E5E7EA]">
+      <section id="description-section">
         <div className="bg-white rounded-b-[40px] lg:rounded-b-[80px]">
           <div className="container mx-auto">
             <SwitchInfo />
           </div>
         </div>
       </section>
-      <section className="bg-[#E5E7EA]">
+      <section id="calc-section">
         <div className="container mx-auto">
           <CalcSection />
         </div>
