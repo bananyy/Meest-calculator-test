@@ -40,7 +40,7 @@ textarea:focus, input:focus{
 
 
 #brands-section{
-    background: linear-gradient(180deg, #F3F8FE 0%, rgb(255, 255, 255) 100%);
+    background: linear-gradient(180deg, #F3F8FE 30%, rgb(255, 255, 255) 60%);
 }
 
 #about-section{
@@ -157,7 +157,7 @@ textarea:focus, input:focus{
 }
 
 .carousel-arrow {
-    border-width: 3px;
+    border-width: 2px;
     border-style: solid;
     width: 35px;
     height: 35px;

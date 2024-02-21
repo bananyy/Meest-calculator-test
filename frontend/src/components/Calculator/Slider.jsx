@@ -22,7 +22,7 @@ export function Slider({ children, onChange, selectedItem, displayItems, loop })
               } top-0 bottom-0 left-0 flex justify-center items-center opacity-50 hover:opacity-100 cursor-pointer z-20`}
               onClick={clickHandler}
             >
-              <div className={`carousel-arrow max-sm:w-[30px] max-sm:h-[30px] border-green`}>
+              <div className={`carousel-arrow sm:border-3 max-sm:w-[30px] max-sm:h-[30px] border-green`}>
                 <i className={`fa-solid fa-angle-left text-green`}></i>
               </div>
             </div>
