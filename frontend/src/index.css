@@ -32,81 +32,32 @@ h2 {
 p {
     letter-spacing: 0.32px;
     font-weight: 500;
-  }
-
-.btn-choose{
-    font-size: 17px;
-    transition: 0.3s all;
-    text-align: left;
-    width: 100%;
-    color: #333;
-    font-weight: 600;
-    padding: 1.25rem 3rem 1.25rem 3rem;
-    border-radius: 20px;
 }
 
-.btn-choose-active{
-    color: hsl(212, 92%, 41%);
-    background-color: hsl(213, 85%, 97%);
-    margin-left: -20px;
-    transition: 0.3s all;
-
+textarea:focus, input:focus{
+    outline: none;
 }
 
-.btn-default{
-    background-color: #28D3A1;
-    width: 10rem;
-    height: 2.8rem;
-    color: white;
-    border-radius: 100px;
-    box-shadow: 0 0 1px 5px #84dcc5db;
-    margin: 5px;
 
+#brands-section{
+    background: linear-gradient(180deg, #F3F8FE 0%, rgb(255, 255, 255) 100%);
 }
 
-.item{
-    transition: 0.5s all;
-    width: 20%;
-    height: 500px;
+#about-section{
+    background-color: #F3F8FE;
 }
 
-.selected {
-    transform-origin: bottom;
-    transform: scale(1);
-    opacity: 1;
-    transition: 0.5s all;
-}
-  
-.not-selected {
-    transform-origin: bottom;
-    transform: scale(0.5);
-    opacity: 0.5;
-    transition: 0.5s all;
+#description-section{
+    background-color: #E5E7EA;
 }
 
-.desc-abs {
-    left: 0;
-    top: 0;
-    height: 100%;
-    max-width: unset;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+#calc-section{
+    background-color: #E5E7EA;
 }
 
 .appear-animation {
     opacity: 0;
     animation: fadeIn 0.5s ease-in-out forwards;
-}
-
-.dissappear-animation {
-    animation: fadeOut 0.5s ease-in-out forwards;
-}
-
-.person-img {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
 }
 
 @keyframes fadeIn {
@@ -118,17 +69,62 @@ p {
     }
 }
 
-@keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
+.btn-switch{
+    font-size: 17px;
+    transition: 0.3s all;
+    text-align: left;
+    width: 100%;
+    color: #333;
+    font-weight: 600;
+    padding: 1.25rem 3rem 1.25rem 3rem;
+    border-radius: 20px;
+}
 
+.btn-switch-active{
+    color: hsl(212, 92%, 41%);
+    background-color: hsl(213, 85%, 97%);
+    margin-left: -20px;
+    transition: 0.3s all;
 
-.input-base {
+}
+
+.item-person-block{
+    transition: 0.5s all;
+    width: 20%;
+    height: 500px;
+}
+
+.selected-person-block {
+    transform-origin: bottom;
+    transform: scale(1);
+    opacity: 1;
+    transition: 0.5s all;
+}
+  
+.non-selected-person-block {
+    transform-origin: bottom;
+    transform: scale(0.5);
+    opacity: 0.5;
+    transition: 0.5s all;
+}
+
+.green-diagram-img {
+    left: 0;
+    top: 0;
+    height: 100%;
+    max-width: unset;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.person-img {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.input-green-diagram {
     position: absolute;
     width: 27%;
     height: 3.2%;
@@ -138,11 +134,8 @@ p {
     font-weight: 600;
 }
 
-textarea:focus, input:focus{
-    outline: none;
-}
 
-.select-base{
+.calc-option-bar{
     border-radius: 50px;
     font-weight: 600;
     padding: 2px 5px;
@@ -159,6 +152,10 @@ textarea:focus, input:focus{
     display: none;
 }
 
+.react-multi-carousel-list {
+    position: unset;
+}
+
 .carousel-arrow {
     border-width: 3px;
     border-style: solid;
@@ -171,18 +168,9 @@ textarea:focus, input:focus{
     font-size: 15px;
 }
 
-.shadow-box{
+.calc-shadow-box{
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.199);
 }
-
-#brands-section{
-    background: linear-gradient(180deg, #F3F8FE 0%, rgb(255, 255, 255) 100%);
-}
-
-.react-multi-carousel-list {
-    position: unset;
-}
-
 
 @media screen and (min-width: 768px){
     .selected-person {
@@ -202,38 +190,36 @@ textarea:focus, input:focus{
 
 
 @media screen and (max-width: 767.98px) {
-    .not-selected{
+    .non-selected-person-block {
         transform: scale(1) !important;
         opacity: 1 !important;
     }
-    .select-base{
+    .calc-option-bar{
         width: unset;
     }
     .person-img{
         width: 140px !important;
     }
-    .item{
+    .item-person-block{
         width: unset;
     }
     .translate-left{
         margin-left: -100px;
     }
-    .btn-choose{
+    .btn-switch{
         font-size: 13px;
         padding: 10px 20px 10px 20px;
         width: unset;
         text-align: center;
+        color: #686868;
 
     }
-    .btn-choose-active{
+    .btn-switch-active{
         margin-left: unset;
         color: hsl(0, 0%, 0%) !important;
         background-color: unset !important;
     }
 
-    .btn-choose{
-        color: #686868;
-    }
 }
 
 @media screen and (max-width: 375px) {
@@ -241,7 +227,7 @@ textarea:focus, input:focus{
         width: 100px !important;
     }
 
-    .item{
+    .item-person-block{
         height: 350px;
     }
 

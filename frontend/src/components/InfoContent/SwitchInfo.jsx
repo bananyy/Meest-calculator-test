@@ -21,8 +21,8 @@ export function SwitchInfo() {
           {categories.map(({ label, value }) => (
             <button
               key={value}
-              className={`btn-choose text-sm-p sm:text-md-p lg:text-lg-p ${
-                activeCategory === value ? "btn-choose-active" : ""
+              className={`btn-switch text-sm-p sm:text-md-p lg:text-lg-p ${
+                activeCategory === value ? "btn-switch-active" : ""
               }`}
               onClick={() => setActiveCategory(value)}
             >
