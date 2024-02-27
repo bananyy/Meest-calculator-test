@@ -17,7 +17,7 @@ export function PersonInfo(props) {
       <button className="h-full flex items-end m-auto" onClick={onClick}>
         <div className="relative">
           <img
-            src={`${import.meta.env.BASE_URL}/images/${type}.png`}
+            src={`${import.meta.env.BASE_URL}/assets/images/${type}.png`}
             className={`object-contain person-img ${
               isSelected ? "selected-person-block" : "non-selected-person-block"
             }`}
@@ -25,7 +25,7 @@ export function PersonInfo(props) {
           {isSelected && part != "none" && (
             <>
               <img
-                src={`${import.meta.env.BASE_URL}/images/${type}/desc_${part}.png`}
+                src={`${import.meta.env.BASE_URL}/assets/images/${type}/desc_${part}.png`}
                 className="absolute green-diagram-img appear-animation"
               />
 
