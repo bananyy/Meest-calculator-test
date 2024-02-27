@@ -91,7 +91,7 @@ textarea:focus, input:focus{
 .item-person-block{
     transition: 0.5s all;
     width: 20%;
-    height: 500px;
+    height: 550px;
 }
 
 .selected-person-block {
@@ -197,9 +197,6 @@ textarea:focus, input:focus{
     .calc-option-bar{
         width: unset;
     }
-    .person-img{
-        width: 140px !important;
-    }
     .item-person-block{
         width: unset;
     }
@@ -223,9 +220,6 @@ textarea:focus, input:focus{
 }
 
 @media screen and (max-width: 375px) {
-    .person-img{
-        width: 100px !important;
-    }
 
     .item-person-block{
         height: 350px;

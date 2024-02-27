@@ -15,10 +15,10 @@ export function PersonInfo(props) {
       }`}
     >
       <button className="h-full flex items-end m-auto" onClick={onClick}>
-        <div className="relative">
+        <div className="relative h-full">
           <img
             src={`${import.meta.env.BASE_URL}/assets/images/${type}.png`}
-            className={`object-contain person-img ${
+            className={`person-img h-full ${
               isSelected ? "selected-person-block" : "non-selected-person-block"
             }`}
           />

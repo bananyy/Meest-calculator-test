@@ -129,9 +129,9 @@ export function CalcSection() {
               />
             )}
           </div>
-          <div className="flex items-end mt-[120px] max-md:hidden">{personTypeElements()}</div>
+          <div className="flex items-end mt-[80px] max-md:hidden">{personTypeElements()}</div>
 
-          <div className="mt-[60px] md:hidden">
+          <div className="mt-[80px] md:hidden">
             <Slider
               onChange={handleCarouselChange}
               selectedItem={dataNames.personTypes.indexOf(selectedType)}
