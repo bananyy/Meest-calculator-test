@@ -38,18 +38,20 @@ export function PersonInfo(props) {
               ))}
               {parametersBodyPart[gender][part][clothesType].map((name) => (
                 <div
-                  className="input-green-diagram-block"
+                  className="input-green-diagram-block appear-animation"
                   style={{
                     top: inputPositions[gender][name].top,
                     left: inputPositions[gender][name].left,
                   }}
                 >
-                  <label
-                    htmlFor={name}
-                    className="text-sm-p sm:text-md-p input-green-diagram-label"
-                  >
-                    {translateParameters[name]}
-                  </label>
+                  <div className="input-green-diagram-label">
+                    <label
+                      htmlFor={name}
+                      className="text-sm-p sm:text-md-p block w-full appear-animation"
+                    >
+                      {translateParameters[name]}
+                    </label>
+                  </div>
                   <input
                     key={name}
                     id={name}

@@ -150,12 +150,14 @@ textarea:focus, input:focus{
 }
 
 .input-green-diagram-label{
-    display: block;
+    display: flex;
+    align-items: end;
     font-weight: 600;
     position: absolute;
-    top: -25px;
-    left: -55px;
-    width: 300%;
+    top: -52px;
+    left: -58px;
+    width: 180px;
+    height: 50px;
 }
 
 .calc-option-bar{
