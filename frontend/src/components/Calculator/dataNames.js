@@ -1,7 +1,7 @@
 const dataNames = {
   personTypes: ["men", "women", "child"],
   bodyParts: ["head", "top", "low", "footwear"],
-  brands: ["Zara", "6pm", "YOOX", "allegro", "Pull&Bear", "asos"],
+  brands: ["adidas", "asos", "columbia", "gap", "massimoDutti", "newBalance", "puma"],
   typeClothes: {
     head: ["hat"],
     top: ["tshirt", "sweater", "shirt", "sweatshirt", "singlet", "jacket"],
@@ -17,12 +17,13 @@ const dataNames = {
   },
   translateBrands: {
     none: "Бренд",
-    Zara: "Zara",
-    "6pm": "6pm",
-    YOOX: "YOOX",
-    allegro: "allegro",
-    "Pull&Bear": "Pull&Bear",
-    asos: "asos",
+    adidas: "Adidas",
+    asos: "Asos",
+    columbia: "Columbia",
+    massimoDutti: "Massimo Dutti",
+    gap: "Gap",
+    newBalance: "New Balance",
+    puma: "Puma",
   },
 
   translateTypeClothes: {
@@ -41,6 +42,16 @@ const dataNames = {
     pants: "Брюки",
     trainers: "Кросівки",
     shoes: "Туфлі",
+  },
+
+  parametersList: {
+    height: "Зріст",
+    head_length: "Об'єм голови",
+    chest_length: "Обхват грудей",
+    waist_length: "Обхват талії",
+    hip_length: "Обхват стегон",
+    pants_length: "Внутрішня довжина штанів",
+    foot_length: "Довжина стопи",
   },
 };
 
