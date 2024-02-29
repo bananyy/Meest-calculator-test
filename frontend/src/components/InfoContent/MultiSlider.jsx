@@ -21,15 +21,11 @@ export function MultiSlider({ children }) {
     },
   };
 
-  const CustomArrow = ({ onClick, side, ...rest }) => {
-    const {
-      onMove,
-      carouselState: { currentSlide, deviceType },
-    } = rest;
+  const CustomArrow = ({ onClick, side }) => {
     // onMove means if dragging or swiping in progress.
     return (
       <button
-        onClick={() => onClick()}
+        onClick={onClick}
         className={`absolute ${side == "right" ? "right-[5%]" : "left-[5%]"}`}
       >
         <div
@@ -49,8 +45,8 @@ export function MultiSlider({ children }) {
       infinite={true}
       swipeable={false}
       draggable={false}
-      customRightArrow={<CustomArrow side={"right"} />}
-      customLeftArrow={<CustomArrow side={"left"} />}
+      customRightArrow={<CustomArrow side="right" />}
+      customLeftArrow={<CustomArrow side="left" />}
       autoPlay
       autoPlaySpeed={5000}
     >
