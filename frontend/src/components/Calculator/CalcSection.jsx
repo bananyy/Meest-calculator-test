@@ -7,10 +7,9 @@ import dataNames from "./dataNames";
 
 export function CalcSection() {
   const [selectedType, setSelectedType] = useState(dataNames.personTypes[0]);
-  const [selectedBodyPart, setSelectedBodyPart] = useState(dataNames.bodyParts[0]);
-  const [selectedBrand, setSelectedBrand] = useState(dataNames.brands[0]);
-  const [selectedTopCl, setSelectedTopCl] = useState(dataNames.topCl[0]);
-  const [selectedLowCl, setSelectedLowCl] = useState(dataNames.lowCl[0]);
+  const [selectedBodyPart, setSelectedBodyPart] = useState("none");
+  const [selectedBrand, setSelectedBrand] = useState("none");
+  const [selectedCl, setSelectedCl] = useState("none");
   const [inputData, setInputData] = useState({});
 
   const handleSelectionChange = (newValue, setSelectedValue) => {
@@ -24,15 +23,13 @@ export function CalcSection() {
   };
   const handlePartChange = (part) => {
     handleSelectionChange(part, setSelectedBodyPart);
+    handleSelectionChange('none', setSelectedCl);
   };
   const handleBrandChange = (brand) => {
     handleSelectionChange(brand, setSelectedBrand);
   };
-  const handleTopClChange = (topCl) => {
-    handleSelectionChange(topCl, setSelectedTopCl);
-  };
-  const handleLowClChange = (topCl) => {
-    handleSelectionChange(topCl, setSelectedLowCl);
+  const handleClChange = (topCl) => {
+    handleSelectionChange(topCl, setSelectedCl);
   };
 
   const handleInputChange = (name, value) => {
@@ -45,37 +42,17 @@ export function CalcSection() {
     handleTypeClick(dataNames.personTypes[item]);
   };
 
-  // const stylesType = (currType) => {
-  //   if (selectedType == "men") {
-  //     if (currType == "women") {
-  //       return "ml-auto";
-  //     }
-  //   } else if (selectedType == "women") {
-  //     if (currType == "men") {
-  //       return "mr-auto";
-  //     } else if (currType == "child") {
-  //       return "ml-auto";
-  //     }
-  //   } else if (selectedType == "child") {
-  //     if (currType == "women") {
-  //       return "mr-auto";
-  //     }
-  //   } else {
-  //     return "";
-  //   }
-  // };
-
   const personTypeElements = () => {
-    return dataNames.personTypes.map((type) => (
+    return dataNames.personTypes.map((gender) => (
       <PersonInfo
-        key={type}
-        type={type}
-        part={selectedBodyPart}
+        key={gender}
+        gender={gender}
+        part={selectedBodyPart ?? 'none'}
+        clothesType={selectedCl ?? 'none'}
         inputData={inputData}
-        onClick={() => handleTypeClick(type)}
+        onClick={() => handleTypeClick(gender)}
         onChange={handleInputChange}
-        isSelected={selectedType === type}
-        // stylesType={stylesType(type)}
+        isSelected={selectedType === gender}
       />
     ));
   };
@@ -94,6 +71,7 @@ export function CalcSection() {
     </select>
   );
 
+
   return (
     <>
       <div className="flex flex-col items-center py-10 w-full">
@@ -101,35 +79,35 @@ export function CalcSection() {
           <h2 className="text-center text-sm-h sm:text-md-h lg:text-lg-h">Калькулятор розмірів</h2>
           <div className="text-sm-p sm:text-md-p lg:text-lg-p flex absolute flex-wrap gap-2 justify-around mt-4 left-5 right-5 md:flex-col md:items-end md:right-10">
             <CustomSelect
+              value={selectedBrand}
+              onChange={handleBrandChange}
+              options={["none", ...dataNames.brands]}
+              translateMap={dataNames.translateBrands}
+            />
+            <CustomSelect
               value={selectedBodyPart}
               onChange={handlePartChange}
-              options={dataNames.bodyParts}
+              options={["none", ...dataNames.bodyParts]}
               translateMap={dataNames.translateBodyParts}
             />
             <CustomSelect
-              value={selectedBrand}
-              onChange={handleBrandChange}
-              options={dataNames.brands}
-              translateMap={dataNames.translateBrands}
+              value={selectedCl}
+              onChange={handleClChange}
+              options={
+                selectedBodyPart === "head"
+                  ? ["none", ...dataNames.typeClothes.head]
+                  : selectedBodyPart === "top"
+                  ? ["none", ...dataNames.typeClothes.top]
+                  : selectedBodyPart === "low"
+                  ? ["none", ...dataNames.typeClothes.low]
+                  : selectedBodyPart === "footwear"
+                  ? ["none", ...dataNames.typeClothes.footwear]
+                  : ["none", ...Object.values(dataNames.typeClothes).flatMap((clothes) => clothes)]
+              }
+              translateMap={dataNames.translateTypeClothes}
             />
-            {selectedBodyPart === "top" && (
-              <CustomSelect
-                value={selectedTopCl}
-                onChange={handleTopClChange}
-                options={dataNames.topCl}
-                translateMap={dataNames.translateTopCl}
-              />
-            )}
-            {selectedBodyPart === "lower" && (
-              <CustomSelect
-                value={selectedLowCl}
-                onChange={handleLowClChange}
-                options={dataNames.lowCl}
-                translateMap={dataNames.translateLowCl}
-              />
-            )}
           </div>
-          <div className="flex items-end mt-[80px] max-md:hidden">{personTypeElements()}</div>
+          <div className="flex items-end mt-[120px] max-md:hidden">{personTypeElements()}</div>
 
           <div className="mt-[80px] md:hidden">
             <Slider
@@ -149,7 +127,7 @@ export function CalcSection() {
               bodyPart: selectedBodyPart,
               data: inputData,
               brand: selectedBrand,
-              clothes: selectedTopCl,
+              clothes: selectedCl,
             })
           }
         >

@@ -88,10 +88,13 @@ textarea:focus, input:focus{
 
 }
 
+.person-img, .item-person-block {
+    height: 565px;
+}
+
 .item-person-block{
     transition: 0.5s all;
     width: 20%;
-    height: 550px;
 }
 
 .selected-person-block {
@@ -201,7 +204,7 @@ textarea:focus, input:focus{
         width: unset;
     }
     .translate-left{
-        margin-left: -100px;
+        margin-left: -80px;
     }
     .btn-switch{
         font-size: 13px;
@@ -221,7 +224,7 @@ textarea:focus, input:focus{
 
 @media screen and (max-width: 375px) {
 
-    .item-person-block{
+    .person-img, .item-person-block {
         height: 350px;
     }
 

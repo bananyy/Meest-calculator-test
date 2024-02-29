@@ -1,12 +1,17 @@
 import React from "react";
 import inputPositions from "./inputPositions";
+import parametersBodyPart from "./parametersBodyPart";
 
 export function PersonInfo(props) {
-  const { type, part, inputData, isSelected, onClick, onChange } = props;
+  const { gender, part, clothesType, inputData, isSelected, onClick, onChange } = props;
 
-  const typePositions = inputPositions[type];
-  const partPositions = typePositions[part];
-  const inputNames = partPositions ? Object.keys(partPositions) : [];
+  // const genderPositions = inputPositions[gender];
+  // const partPositions = genderPositions[part];
+  // const inputNames = partPositions ? Object.keys(partPositions) : [];
+
+  // const genderParameters = parametersBodyPart[gender];
+  // const partParameters = genderParameters[part];
+  // const typeClothesParameters = partParameters[clothesType ? clothesType : 'none'];
 
   return (
     <div
@@ -17,19 +22,20 @@ export function PersonInfo(props) {
       <button className="h-full flex items-end m-auto" onClick={onClick}>
         <div className="relative h-full">
           <img
-            src={`${import.meta.env.BASE_URL}/assets/images/${type}.png`}
-            className={`person-img h-full ${
+            src={`${import.meta.env.BASE_URL}/assets/images/${gender}/main.png`}
+            className={`person-img ${
               isSelected ? "selected-person-block" : "non-selected-person-block"
             }`}
           />
           {isSelected && part != "none" && (
             <>
-              <img
-                src={`${import.meta.env.BASE_URL}/assets/images/${type}/desc_${part}.png`}
-                className="absolute green-diagram-img appear-animation"
-              />
-
-              {inputNames.map((name) => (
+              {parametersBodyPart[gender][part][clothesType].map((name) => (
+                <img
+                  src={`${import.meta.env.BASE_URL}/assets/images/${gender}/parameters/${name}.png`}
+                  className="absolute green-diagram-img appear-animation"
+                />
+              ))}
+              {parametersBodyPart[gender][part][clothesType].map((name) => (
                 <input
                   key={name}
                   type="text"
@@ -39,8 +45,8 @@ export function PersonInfo(props) {
                   onClick={(event) => event.stopPropagation()}
                   onChange={(event) => onChange(name, event.target.value)}
                   style={{
-                    top: partPositions[name].top,
-                    left: partPositions[name].left,
+                    top: inputPositions[gender][part][name].top,
+                    left: inputPositions[gender][part][name].left,
                   }}
                   maxLength="4"
                   required
