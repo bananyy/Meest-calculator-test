@@ -1,134 +1,104 @@
 const inputPositions = {
   men: {
-    head: {
-      head: {
-        top: "9.2%",
-        left: "103.5%",
-      },
+    head_length: {
+      top: "10.8%",
+      left: "111.2%",
     },
-    top: {
-      throat: {
-        top: "15.9%",
-        left: "109.5%",
-      },
-      chest: {
-        top: "28.1%",
-        left: "109.5%",
-      },
-      waist: {
-        top: "38.4%",
-        left: "109.5%",
-      },
-      sleeve: {
-        top: "47.2%",
-        left: "109.5%",
-      },
-      torso: {
-        top: "56%",
-        left: "109.5%",
-      },
+    chest_length: {
+      top: "29.2%",
+      left: "111.2%",
     },
-    lower: {
-      waistLength: {
-        top: "41.9%",
-        left: "117.5%",
-      },
-      hip: {
-        top: "52.4%",
-        left: "117.5%",
-      },
-      pantsLength: {
-        top: "72.8%",
-        left: "117.5%",
-      },
+    waist_length: {
+      top: "42.3%",
+      left: "111.2%",
+    },
+    waist_length: {
+      top: "42.3%",
+      left: "111.2%",
+    },
+    hip_length: {
+      top: "55.4%",
+      left: "111.2%",
+    },
+    pants_length: {
+      top: "72%",
+      left: "111.2%",
+    },
+    foot_length: {
+      top: "72%",
+      left: "111.2%",
+    },
+    height: {
+      top: "6.4%",
+      left: "111.2%",
     },
   },
   women: {
-    head: {
-      head: {
-        top: "7.27%",
-        left: "108.5%",
-      },
+    head_length: {
+      top: "14.2%",
+      left: "107.5%",
     },
-    top: {
-      throat: {
-        top: "14.6%",
-        left: "113.5%",
-      },
-      chest: {
-        top: "27.6%",
-        left: "113.5%",
-      },
-      waist: {
-        top: "38.4%",
-        left: "113.5%",
-      },
-      sleeve: {
-        top: "47.9%",
-        left: "113.5%",
-      },
-      torso: {
-        top: "57.3%",
-        left: "113.5%",
-      },
+    chest_length: {
+      top: "26.4%",
+      left: "107.5%",
     },
-    lower: {
-      waistLength: {
-        top: "35.1%",
-        left: "112.5%",
-      },
-      hip: {
-        top: "45.5%",
-        left: "112.5%",
-      },
-      pantsLength: {
-        top: "65.4%",
-        left: "112.5%",
-      },
+    waist_length: {
+      top: "39.5%",
+      left: "107.5%",
+    },
+    waist_length: {
+      top: "39.5%",
+      left: "107.5%",
+    },
+    hip_length: {
+      top: "52.4%",
+      left: "107.5%",
+    },
+    pants_length: {
+      top: "73.3%",
+      left: "107.5%",
+    },
+    foot_length: {
+      top: "77.9%",
+      left: "107.5%",
+    },
+    height: {
+      top: "9%",
+      left: "107.5%",
     },
   },
   child: {
-    head: {
-      head: {
-        top: "6.6%",
-        left: "113.5%",
-      },
+    head_length: {
+      top: "22.3%",
+      left: "110.5%",
     },
-    top: {
-      throat: {
-        top: "14.8%",
-        left: "117.5%",
-      },
-      chest: {
-        top: "29.4%",
-        left: "117.5%",
-      },
-      waist: {
-        top: "41.8%",
-        left: "117.5%",
-      },
-      sleeve: {
-        top: "52.4%",
-        left: "117.5%",
-      },
-      torso: {
-        top: "63%",
-        left: "117.5%",
-      },
+    chest_length: {
+      top: "36.5%",
+      left: "110.5%",
     },
-    lower: {
-      waistLength: {
-        top: "39.1%",
-        left: "118.5%",
-      },
-      hip: {
-        top: "50.1%",
-        left: "118.5%",
-      },
-      pantsLength: {
-        top: "71.4%",
-        left: "118.5%",
-      },
+    waist_length: {
+      top: "49.8%",
+      left: "110.5%",
+    },
+    waist_length: {
+      top: "49.7%",
+      left: "110.5%",
+    },
+    hip_length: {
+      top: "62.9%",
+      left: "110.5%",
+    },
+    pants_length: {
+      top: "78.1%",
+      left: "110.5%",
+    },
+    foot_length: {
+      top: "78.1%",
+      left: "110.5%",
+    },
+    height: {
+      top: "18.3%",
+      left: "110.5%",
     },
   },
 };

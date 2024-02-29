@@ -1,14 +1,19 @@
 const dataNames = {
   personTypes: ["men", "women", "child"],
-  bodyParts: ["none", "head", "top", "lower"],
-  brands: ["none", "Zara", "6pm", "YOOX", "allegro", "Pull&Bear", "asos"],
-  topCl: ["none", "tshirt", "sweater", "shirt", "sweatshirt", "singlet", "jacket"],
-  lowCl: ["none", "jeens", "skirts", "shorts", "pants"],
+  bodyParts: ["head", "top", "low", "footwear"],
+  brands: ["Zara", "6pm", "YOOX", "allegro", "Pull&Bear", "asos"],
+  typeClothes: {
+    head: ["hat"],
+    top: ["tshirt", "sweater", "shirt", "sweatshirt", "singlet", "jacket"],
+    low: ["jeens", "skirts", "shorts", "pants"],
+    footwear: ["trainers", "shoes"],
+  },
   translateBodyParts: {
     none: "Категорії",
     head: "Головний убір",
     top: "Верхня частина тіла",
-    lower: "Нижня частина тіла",
+    low: "Нижня частина тіла",
+    footwear: "Взуття",
   },
   translateBrands: {
     none: "Бренд",
@@ -20,22 +25,22 @@ const dataNames = {
     asos: "asos",
   },
 
-  translateTopCl: {
+  translateTypeClothes: {
     none: "Тип одягу",
+    hat: "Капелюх",
     tshirt: "Футболки",
     sweater: "Светри",
     shirt: "Сорочки",
     sweatshirt: "Світшоти",
     singlet: "Майки",
     jacket: "Піджаки",
-  },
-
-  translateLowCl: {
     none: "Тип одягу",
     jeens: "Джинси",
     skirts: "Спідниці",
     shorts: "Шорти",
     pants: "Брюки",
+    trainers: "Кросівки",
+    shoes: "Туфлі",
   },
 };
 

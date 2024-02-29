@@ -57,15 +57,18 @@ textarea:focus, input:focus{
 
 .appear-animation {
     opacity: 0;
-    animation: fadeIn 0.5s ease-in-out forwards;
+    animation: fadeIn 0.6s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
     0% {
-      opacity: 0;
+        opacity: 0;
+    }
+    10% {
+        opacity: 0;
     }
     100% {
-      opacity: 1;
+        opacity: 1;
     }
 }
 
@@ -88,10 +91,13 @@ textarea:focus, input:focus{
 
 }
 
+.person-img, .item-person-block, .green-diagram-img {
+    height: 565px;
+}
+
 .item-person-block{
     transition: 0.5s all;
     width: 20%;
-    height: 500px;
 }
 
 .selected-person-block {
@@ -111,7 +117,6 @@ textarea:focus, input:focus{
 .green-diagram-img {
     left: 0;
     top: 0;
-    height: 100%;
     max-width: unset;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -119,21 +124,41 @@ textarea:focus, input:focus{
 }
 
 .person-img {
+    max-width: unset;
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
 }
 
-.input-green-diagram {
+.input-green-diagram-block{
     position: absolute;
-    width: 27%;
-    height: 3.2%;
-    border: none;
-    font-size: 90%;
-    text-align: center;
-    font-weight: 600;
+    width: 62.6px;
+    height: 28.8px;
 }
 
+.input-green-diagram {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    font-size: 95%;
+    text-align: center;
+    font-weight: 600;
+    border: 3px solid #28D3A1;
+}
+
+.input-green-diagram-label{
+    display: flex;
+    align-items: end;
+    font-weight: 600;
+    position: absolute;
+    top: -52px;
+    left: -58px;
+    width: 180px;
+    height: 50px;
+}
 
 .calc-option-bar{
     border-radius: 50px;
@@ -197,14 +222,11 @@ textarea:focus, input:focus{
     .calc-option-bar{
         width: unset;
     }
-    .person-img{
-        width: 140px !important;
-    }
     .item-person-block{
         width: unset;
     }
     .translate-left{
-        margin-left: -100px;
+        margin-left: -120px;
     }
     .btn-switch{
         font-size: 13px;
@@ -220,18 +242,25 @@ textarea:focus, input:focus{
         background-color: unset !important;
     }
 
+
+
 }
 
 @media screen and (max-width: 375px) {
-    .person-img{
-        width: 100px !important;
-    }
 
-    .item-person-block{
+    .person-img, .item-person-block, .green-diagram-img {
         height: 350px;
     }
 
     .translate-left{
         margin-left: -50px;
+    }
+
+    .input-green-diagram {
+        width: 38.8px;
+        height: 17.85px;
+        border-radius: 8px;
+        font-size: 70%;
+        border: 2px solid #28D3A1;
     }
 }
