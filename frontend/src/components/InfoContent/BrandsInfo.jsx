@@ -1,5 +1,6 @@
 import React from "react";
 import { MultiSlider } from "./MultiSlider";
+import dataNames from "../Calculator/dataNames";
 
 export function BrandsInfo() {
   return (
@@ -7,17 +8,14 @@ export function BrandsInfo() {
       <h2 className="text-[30px] sm:text-[40px] lg:text-[70px] text-mainblue mb-10 md:mb-12">
         Бренди
       </h2>
-      <div className="w-full relative">
+      <div className="w-full relative lg:my-10">
         <MultiSlider>
-          {[...Array(6).keys()].map((i) => (
+          {dataNames.brands.map((brand) => (
             <div
-              key={i}
-              className="flex items-center justify-center px-2 sm:px-3 md:px-8 xl:px-12 max-w-[1920px] lg:my-10"
+              key={brand}
+              className="flex items-center justify-center px-2 sm:px-3 md:px-8 xl:px-12 w-full h-full"
             >
-              <img
-                src={`https://meest.shopping/uploads/elFinder/catalog-img/mm-logo-156x75-${i}.png`}
-                alt=""
-              />
+              <img src={`${import.meta.env.BASE_URL}/assets/images/brands/${brand}.png`} alt="" />
             </div>
           ))}
         </MultiSlider>

@@ -1,6 +1,7 @@
 import React from "react";
 import inputPositions from "./inputPositions";
-import { parametersBodyPart, translateParameters } from "./parametersBodyPart";
+import { parametersBodyPart } from "./parametersBodyPart";
+import dataNames from "./dataNames";
 
 export function PersonInfo(props) {
   const { gender, part, clothesType, inputData, isSelected, onClick, onChange } = props;
@@ -43,13 +44,14 @@ export function PersonInfo(props) {
                     top: inputPositions[gender][name].top,
                     left: inputPositions[gender][name].left,
                   }}
+                  key={name}
                 >
                   <div className="input-green-diagram-label">
                     <label
                       htmlFor={name}
                       className="text-sm-p sm:text-md-p block w-full appear-animation"
                     >
-                      {translateParameters[name]}
+                      {dataNames.parametersList[name]}
                     </label>
                   </div>
                   <input
