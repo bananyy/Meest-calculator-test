@@ -88,7 +88,7 @@ textarea:focus, input:focus{
 
 }
 
-.person-img, .item-person-block {
+.person-img, .item-person-block, .green-diagram-img {
     height: 565px;
 }
 
@@ -114,7 +114,6 @@ textarea:focus, input:focus{
 .green-diagram-img {
     left: 0;
     top: 0;
-    height: 100%;
     max-width: unset;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -122,6 +121,7 @@ textarea:focus, input:focus{
 }
 
 .person-img {
+    max-width: unset;
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
@@ -129,12 +129,13 @@ textarea:focus, input:focus{
 
 .input-green-diagram {
     position: absolute;
-    width: 27%;
-    height: 3.2%;
-    border: none;
+    width: 36%;
+    height: 5.1%;
+    border-radius: 8px;
     font-size: 90%;
     text-align: center;
     font-weight: 600;
+    border: 3px solid #28D3A1;
 }
 
 
@@ -224,7 +225,7 @@ textarea:focus, input:focus{
 
 @media screen and (max-width: 375px) {
 
-    .person-img, .item-person-block {
+    .person-img, .item-person-block, .green-diagram-img {
         height: 350px;
     }
 

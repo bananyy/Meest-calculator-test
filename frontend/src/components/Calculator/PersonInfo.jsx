@@ -33,6 +33,7 @@ export function PersonInfo(props) {
                 <img
                   src={`${import.meta.env.BASE_URL}/assets/images/${gender}/parameters/${name}.png`}
                   className="absolute green-diagram-img appear-animation"
+                  key={name}
                 />
               ))}
               {parametersBodyPart[gender][part][clothesType].map((name) => (

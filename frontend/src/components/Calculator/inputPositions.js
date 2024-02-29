@@ -2,8 +2,8 @@ const inputPositions = {
   men: {
     head: {
       head_length: {
-        top: "9.2%",
-        left: "103.5%",
+        top: "10.8%", 
+        left: "111.2%",
       },
     },
     top: {
