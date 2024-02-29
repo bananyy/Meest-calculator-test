@@ -1,6 +1,6 @@
 import React from "react";
 import inputPositions from "./inputPositions";
-import parametersBodyPart from "./parametersBodyPart";
+import { parametersBodyPart, translateParameters } from "./parametersBodyPart";
 
 export function PersonInfo(props) {
   const { gender, part, clothesType, inputData, isSelected, onClick, onChange } = props;
@@ -16,7 +16,7 @@ export function PersonInfo(props) {
   return (
     <div
       className={`item-person-block ${isSelected ? "selected-person" : ""} ${
-        part != "none" ? "translate-left" : ""
+        part != "none" && isSelected ? "translate-left" : ""
       }`}
     >
       <button className="h-full flex items-end m-auto" onClick={onClick}>
@@ -37,21 +37,32 @@ export function PersonInfo(props) {
                 />
               ))}
               {parametersBodyPart[gender][part][clothesType].map((name) => (
-                <input
-                  key={name}
-                  type="text"
-                  className="input-green-diagram appear-animation "
-                  name={name}
-                  value={inputData[name]}
-                  onClick={(event) => event.stopPropagation()}
-                  onChange={(event) => onChange(name, event.target.value)}
+                <div
+                  className="input-green-diagram-block"
                   style={{
-                    top: inputPositions[gender][part][name].top,
-                    left: inputPositions[gender][part][name].left,
+                    top: inputPositions[gender][name].top,
+                    left: inputPositions[gender][name].left,
                   }}
-                  maxLength="4"
-                  required
-                />
+                >
+                  <label
+                    htmlFor={name}
+                    className="text-sm-p sm:text-md-p input-green-diagram-label"
+                  >
+                    {translateParameters[name]}
+                  </label>
+                  <input
+                    key={name}
+                    id={name}
+                    type="number"
+                    className="input-green-diagram appear-animation"
+                    name={name}
+                    value={inputData[name]}
+                    onClick={(event) => event.stopPropagation()}
+                    onChange={(event) => onChange(name, event.target.value)}
+                    maxLength="4"
+                    required
+                  />
+                </div>
               ))}
             </>
           )}
