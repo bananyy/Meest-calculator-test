@@ -226,7 +226,7 @@ textarea:focus, input:focus{
         width: unset;
     }
     .translate-left{
-        margin-left: -80px;
+        margin-left: -120px;
     }
     .btn-switch{
         font-size: 13px;
@@ -241,6 +241,8 @@ textarea:focus, input:focus{
         color: hsl(0, 0%, 0%) !important;
         background-color: unset !important;
     }
+
+
 
 }
 
