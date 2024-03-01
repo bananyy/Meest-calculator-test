@@ -17,10 +17,10 @@ const SwitchBar = ({ onChange }) => {
       onColor="#99A4AF"
       offHandleColor="#ffffff"
       onHandleColor="#ffffff"
-      handleDiameter={30}
+      handleDiameter={26}
       height={30}
       width={60}
-      borderRadius={15}
+      borderRadius={8}
       uncheckedIcon={
         <div
           style={{
@@ -46,7 +46,7 @@ const SwitchBar = ({ onChange }) => {
             color: "#ffffff",
           }}
         >
-          <p>cm</p>
+          <p>см</p>
         </div>
       }
       uncheckedHandleIcon={
@@ -60,7 +60,7 @@ const SwitchBar = ({ onChange }) => {
             color: "#99A4AF",
           }}
         >
-          <p>cm</p>
+          <p>см</p>
         </div>
       }
       checkedHandleIcon={

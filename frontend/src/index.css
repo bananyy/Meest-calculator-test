@@ -14,6 +14,11 @@ input::-webkit-inner-spin-button {
     src: url("fonts/Montserrat-VariableFont_wght.ttf");
 }
 
+@font-face {
+    font-family: "Offside";
+    src: url("fonts/Offside-Regular.ttf");
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -57,20 +62,23 @@ textarea:focus, input:focus{
 
 .appear-animation {
     opacity: 0;
-    animation: fadeIn 0s ease-in-out forwards;
+    animation: fadeIn 0.6s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
     0% {
         opacity: 0;
     }
-    10% {
-        opacity: 0;
-    }
     100% {
         opacity: 1;
     }
 }
+
+.appear-animation-result {
+    opacity: 0;
+    animation: fadeIn 0.4s ease-in-out forwards;
+}
+
 
 .btn-switch{
     font-size: 17px;
@@ -154,10 +162,10 @@ textarea:focus, input:focus{
     align-items: end;
     font-weight: 600;
     position: absolute;
-    top: -52px;
-    left: -58px;
-    width: 180px;
-    height: 50px;
+    top: -44px;
+    left: -46px;
+    width: 160px;
+    height: 40px;
 }
 
 .calc-option-bar{
@@ -167,7 +175,7 @@ textarea:focus, input:focus{
     border: 2px solid #808891;
     color: #7e868f;
     height: 30px;
-    
+    width: 220px;
 }
 
 .carousel .slide img {
@@ -195,12 +203,24 @@ textarea:focus, input:focus{
 }
 
 .calc-shadow-box{
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.199);
+    box-shadow: 0 0 40px rgba(134, 134, 134, 0.199);
 }
 
-.react-switch{
-    border: 2px solid #0000003b;
-    background-color: #99A4AF;
+
+.gradient-background{
+    background: linear-gradient(90deg, #9AEDD5 0%, #28D3A1 62%, #17CF99 91%);
+}
+
+.size-result{
+    position: absolute;
+    font-family: Offside;
+    left: 0;
+    top: 30%;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -210,15 +230,7 @@ textarea:focus, input:focus{
         width: 60%;
         transition: 0.5s all;
     }
-    
-    /* .selected-person:last-child button{
-        margin: unset;
-    }
-    
-    .selected-person:first-child button{
-        margin: unset;
-        float: right;
-    } */
+
 }
 
 
@@ -234,7 +246,7 @@ textarea:focus, input:focus{
         width: unset;
     }
     .translate-left{
-        margin-left: -120px;
+        margin-left: -90px;
     }
     .btn-switch{
         font-size: 13px;
@@ -250,6 +262,10 @@ textarea:focus, input:focus{
         background-color: unset !important;
     }
 
+    .person-img, .item-person-block, .green-diagram-img {
+        height: 500px;
+    }
+
 
 
 }
@@ -261,14 +277,26 @@ textarea:focus, input:focus{
     }
 
     .translate-left{
-        margin-left: -50px;
+        margin-left: -100px;
     }
 
     .input-green-diagram {
-        width: 38.8px;
-        height: 17.85px;
-        border-radius: 8px;
+        width: 45px;
+        height: 20px;
+        border-radius: 6px;
         font-size: 70%;
         border: 2px solid #28D3A1;
+    }
+
+    .input-green-diagram-label{
+        display: flex;
+        align-items: end;
+        font-weight: 600;
+        position: absolute;
+        top: -22px;
+        left: -25px;
+        width: 120px;
+        height: 20px;
+        z-index: 0;
     }
 }

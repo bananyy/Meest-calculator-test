@@ -20,11 +20,12 @@ export function PersonInfo(props) {
         part != "none" && isSelected ? "translate-left" : ""
       }`}
     >
-      <button className="h-full flex items-end m-auto" onClick={onClick}>
+      <div className="h-full flex justify-center m-auto cursor-default">
         <div className="relative h-full">
           <img
+            onClick={onClick}
             src={`${import.meta.env.BASE_URL}/assets/images/${gender}/main.png`}
-            className={`person-img ${
+            className={`person-img cursor-pointer ${
               isSelected ? "selected-person-block" : "non-selected-person-block"
             }`}
           />
@@ -46,10 +47,10 @@ export function PersonInfo(props) {
                   }}
                   key={name}
                 >
-                  <div className="input-green-diagram-label">
+                  <div className="input-green-diagram-label inline-block">
                     <label
                       htmlFor={name}
-                      className="text-sm-p sm:text-md-p block w-full appear-animation"
+                      className="text-[12px] sm:text-sm-p md:text-md-p block w-full text-center appear-animation max-sm:text-[11px]"
                     >
                       {dataNames.parametersList[name]}
                     </label>
@@ -58,7 +59,7 @@ export function PersonInfo(props) {
                     key={name}
                     id={name}
                     type="number"
-                    className="input-green-diagram appear-animation"
+                    className="input-green-diagram appear-animation z-5"
                     name={name}
                     value={inputData[name]}
                     onClick={(event) => event.stopPropagation()}
@@ -71,7 +72,7 @@ export function PersonInfo(props) {
             </>
           )}
         </div>
-      </button>
+      </div>
     </div>
   );
 }
