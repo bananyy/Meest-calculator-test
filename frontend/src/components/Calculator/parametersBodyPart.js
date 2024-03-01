@@ -32,7 +32,7 @@ const parametersBodyPart = {
       hat: ["head_length"],
     },
     top: {
-      none: ["chest_length", "waist_length", "height"],
+      none: ["chest_length", "waist_length"],
       tshirt: ["chest_length", "waist_length"],
       sweater: ["chest_length", "waist_length"],
       shirt: ["chest_length", "waist_length"],

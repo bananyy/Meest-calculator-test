@@ -5,7 +5,7 @@ const dataNames = {
   typeClothes: {
     head: ["hat"],
     top: ["tshirt", "sweater", "shirt", "sweatshirt", "singlet", "jacket"],
-    low: ["jeens", "skirts", "shorts", "pants"],
+    low: ["jeans", "skirts", "shorts", "pants"],
     footwear: ["trainers", "shoes"],
   },
   translateBodyParts: {
@@ -36,7 +36,7 @@ const dataNames = {
     singlet: "Майки",
     jacket: "Піджаки",
     none: "Тип одягу",
-    jeens: "Джинси",
+    jeans: "Джинси",
     skirts: "Спідниці",
     shorts: "Шорти",
     pants: "Брюки",
@@ -53,6 +53,12 @@ const dataNames = {
     pants_length: "Внутрішня довжина штанів",
     foot_length: "Довжина стопи",
   },
+
+  translateGenders:{
+    men: 'Чоловік',
+    women: 'Жінка',
+    child: 'Дитина',
+  }
 };
 
 export default dataNames;
