@@ -1,14 +1,18 @@
+// Import and configure dotenv
+require('dotenv').config();
+
 const config = {
     development: {
         database: {
-            host: 'localhost',
-            port: 3306,
-            user: 'root',
-            password: '',
-            database: 'size_table_db',
-            waitForConnections: true,
-            connectionLimit: 10,
-            queueLimit: 0
+            host: process.env.DEVELOPMENT_DATABASE_HOST,
+            port: parseInt(process.env.DEVELOPMENT_DATABASE_PORT),
+            user: process.env.DEVELOPMENT_DATABASE_USER,
+            password: process.env.DEVELOPMENT_DATABASE_PASSWORD,
+            database: process.env.DEVELOPMENT_DATABASE_NAME,
+            waitForConnections: process.env.DEVELOPMENT_DATABASE_WAITFORCONNECTIONS === 'true',
+            connectionLimit: parseInt(process.env.DEVELOPMENT_DATABASE_CONNECTIONLIMIT),
+            queueLimit: parseInt(process.env.DEVELOPMENT_DATABASE_QUEUELIMIT)
+
         }
     },
     production: {
@@ -20,3 +24,4 @@ const config = {
 const environment = process.env.NODE_ENV || 'development';
 
 module.exports = config[environment];
+
