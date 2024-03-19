@@ -7,6 +7,7 @@ import dataNames from "./dataNames";
 import SwitchBar from "./SwitchBar";
 import { ModalResult } from "./ModalResult";
 import CustomSelect from "./CustomSelect";
+import { postJson } from "../../api";
 
 export function CalcSection({ brands }) {
   const [selectedType, setSelectedType] = useState(dataNames.personTypes[0]);
@@ -15,15 +16,9 @@ export function CalcSection({ brands }) {
   const [selectedCl, setSelectedCl] = useState("none");
   const [inputData, setInputData] = useState({});
   const [selectedMetric, setselectedMetric] = useState("cm");
-  const [isOpenedResultMenu, setStatusResultMenu] = useState(false);
+  const [showResultMenu, setShowResultMenu] = useState(false);
 
-  const isFilled = () => {
-    if (selectedBodyPart === "none" || selectedBrand === "none" || selectedCl === "none") {
-      return false;
-    } else {
-      return true;
-    }
-  };
+  const isFilled = selectedBodyPart !== "none" && selectedBrand !== "none" && selectedCl !== "none";
 
   const handleSelectionChange = (newValue, setSelectedValue) => {
     if (newValue !== setSelectedValue) {
@@ -79,12 +74,30 @@ export function CalcSection({ brands }) {
     none: "Бренд",
   });
 
+  const isCalcEnabled = isFilled;
+
+  const handleCalc = () => {
+    postJson("api/v1/calc", {
+      selectedBrand,
+      selectedBodyPart,
+      selectedCl,
+    })
+      .then((data) => {
+        // handle response
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
+    setShowResultMenu(true);
+  };
+
   return (
     <>
       <div className="flex flex-col items-center py-2 w-full">
         <div
           className={`w-full bg-[#EFF1F4] rounded-[40px] py-8 relative px-3 sm:px-6 md:px-8 lg:px-16 xl:px-24 my-8 ${
-            isOpenedResultMenu ? "" : "calc-shadow-box"
+            showResultMenu ? "" : "calc-shadow-box"
           }`}
         >
           <h2 className="text-center text-sm-h sm:text-md-h lg:text-lg-h">Калькулятор розмірів</h2>
@@ -138,19 +151,17 @@ export function CalcSection({ brands }) {
               {personTypeElements()}
             </Slider>
           </div>
-          {isOpenedResultMenu ? (
-            isFilled() ? (
-              <ModalResult
-                onClickClose={() => setStatusResultMenu(false)}
-                gender={selectedType}
-                clothesType={selectedCl}
-              />
-            ) : (
-              setStatusResultMenu(false)
-            )
-          ) : null}
+          {showResultMenu && (
+            <ModalResult
+              onClickClose={() => setShowResultMenu(false)}
+              gender={selectedType}
+              clothesType={selectedCl}
+            />
+          )}
         </div>
-        <Button onClick={() => setStatusResultMenu(true)}>Розрахувати</Button>
+        <Button disabled={!isCalcEnabled} onClick={handleCalc}>
+          Розрахувати
+        </Button>
       </div>
     </>
   );
