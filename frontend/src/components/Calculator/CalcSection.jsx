@@ -6,8 +6,9 @@ import { Slider } from "./Slider";
 import dataNames from "./dataNames";
 import SwitchBar from "./SwitchBar";
 import { ModalResult } from "./ModalResult";
+import CustomSelect from "./CustomSelect";
 
-export function CalcSection() {
+export function CalcSection({ brands }) {
   const [selectedType, setSelectedType] = useState(dataNames.personTypes[0]);
   const [selectedBodyPart, setSelectedBodyPart] = useState("none");
   const [selectedBrand, setSelectedBrand] = useState("none");
@@ -19,7 +20,7 @@ export function CalcSection() {
   const isFilled = () => {
     if (selectedBodyPart === "none" || selectedBrand === "none" || selectedCl === "none") {
       return false;
-    }else{
+    } else {
       return true;
     }
   };
@@ -73,19 +74,10 @@ export function CalcSection() {
     ));
   };
 
-  const CustomSelect = ({ value, onChange, options, translateMap }) => (
-    <select
-      value={value}
-      onChange={(event) => onChange(event.target.value)}
-      className="calc-option-bar min-w-[70px]  max-sm:text-[11px] max-md:text-[13px] max-sm:p-[0.5px] max-sm:h-6 z-10"
-    >
-      {options.map((item) => (
-        <option key={item} value={item}>
-          {translateMap[item]}
-        </option>
-      ))}
-    </select>
-  );
+  const brandKeys = brands.map((brand) => brand.key);
+  const brandNamesObj = brands.reduce((acc, curr) => ({ ...acc, [curr.key]: curr.name }), {
+    none: "Бренд",
+  });
 
   return (
     <>
@@ -104,8 +96,8 @@ export function CalcSection() {
               <CustomSelect
                 value={selectedBrand}
                 onChange={handleBrandChange}
-                options={["none", ...dataNames.brands]}
-                translateMap={dataNames.translateBrands}
+                options={["none", ...brandKeys]}
+                translateMap={brandNamesObj}
               />
               <CustomSelect
                 value={selectedBodyPart}
@@ -148,7 +140,11 @@ export function CalcSection() {
           </div>
           {isOpenedResultMenu ? (
             isFilled() ? (
-              <ModalResult onClickClose={() => setStatusResultMenu(false)} gender={selectedType} clothesType={selectedCl}/>
+              <ModalResult
+                onClickClose={() => setStatusResultMenu(false)}
+                gender={selectedType}
+                clothesType={selectedCl}
+              />
             ) : (
               setStatusResultMenu(false)
             )
