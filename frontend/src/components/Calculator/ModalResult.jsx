@@ -8,21 +8,20 @@ export function ModalResult({ onClickClose, gender, clothesType }) {
       <h2 className="text-sm-h sm:text-md-h lg:text-lg-h text-center">Рекомендований розмір</h2>
       <div className="flex justify-between mb-8 mt-8 xs:mt-20 sm:mt-14 md:mt-20 gap-8 md:gap-16">
         <Measure bounds>
-          {({ measureRef, contentRect }) => (
-            <div ref={measureRef} className="max-w-[180px] sm:max-w-[250px] m-auto relative">
-              <img src={`${import.meta.env.BASE_URL}/assets/images/size-info.png`} alt="" />
-              <div className="size-result">
-                <span
-                  style={{
-                    fontSize: contentRect.bounds.width * 0.65,
-                  }}
-                  className="select-none"
-                >
-                  S
-                </span>
+          {({ measureRef, contentRect }) => {
+            const fontSize = contentRect.bounds.width ? contentRect.bounds.width * 0.65 : "inherit";
+
+            return (
+              <div ref={measureRef} className="max-w-[180px] sm:max-w-[250px] m-auto relative">
+                <img src={`${import.meta.env.BASE_URL}/assets/images/size-info.png`} alt="" />
+                <div className="size-result">
+                  <span style={{ fontSize }} className="select-none">
+                    S
+                  </span>
+                </div>
               </div>
-            </div>
-          )}
+            );
+          }}
         </Measure>
         <div className="flex flex-col justify-center md:justify-between">
           <div className="text-sm-p sm:text-md-p md:text-[22px] flex justify-between max-lg:flex-col gap-4 sm:gap-8 lg:gap:6 m-auto items-center">
@@ -55,7 +54,7 @@ export function ModalResult({ onClickClose, gender, clothesType }) {
             className="text-lg-p md:text-md-h lg:text-md-h font-bold tracking-wider text-center w-full flex gap-2 items-center z-40 relative"
           >
             <span>Повернутись на головну сторінку</span>
-            <i class="fa-solid fa-arrow-right text-[30px]"></i>
+            <i className="fa-solid fa-arrow-right text-[30px]"></i>
           </button>
         </div>
       </div>
