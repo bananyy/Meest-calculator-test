@@ -224,7 +224,6 @@ textarea:focus, input:focus{
 }
 
 
-
 @media screen and (min-width: 768px){
     .selected-person {
         width: 60%;

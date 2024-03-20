@@ -27,12 +27,12 @@ export function ModalResult({ onClickClose, gender, clothesType }) {
           <div className="text-sm-p sm:text-md-p md:text-[22px] flex justify-between max-lg:flex-col gap-4 sm:gap-8 lg:gap:6 m-auto items-center">
             <div className="flex justify-center items-center border-green shadow-sm border-2 rounded-full h-[30px] w-[120px] md:h-[43px] md:w-[175px]">
               <p className="font-bold tracking-wider text-center">
-                {dataNames.translateGenders[gender]}
+                {dataNames.gendersList[gender]}
               </p>
             </div>
             <div className="flex justify-center items-center rounded-full gradient-background text-white h-[30px] w-[120px] md:h-[43px] md:w-[175px]">
               <p className="font-bold tracking-wider text-center">
-                {dataNames.translateTypeClothes[clothesType]}
+                {dataNames.clothesType[clothesType]}
               </p>
             </div>
           </div>

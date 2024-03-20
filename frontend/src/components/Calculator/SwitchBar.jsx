@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Switch from "react-switch";
 
-const SwitchBar = ({ onChange }) => {
+const SwitchBar = ({ onChange, height = 30 }) => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = (checked) => {
@@ -13,14 +13,16 @@ const SwitchBar = ({ onChange }) => {
     <Switch
       checked={checked}
       onChange={handleChange}
+      boxShadow="0 0 0 2px #99A4AF"
+      activeBoxShadow="0"
       offColor="#99A4AF"
       onColor="#99A4AF"
       offHandleColor="#ffffff"
       onHandleColor="#ffffff"
-      handleDiameter={26}
-      height={30}
-      width={60}
-      borderRadius={8}
+      handleDiameter={height}
+      height={height}
+      width={height * 2}
+      borderRadius={0.26 * height}
       uncheckedIcon={
         <div
           style={{
@@ -28,7 +30,7 @@ const SwitchBar = ({ onChange }) => {
             justifyContent: "center",
             alignItems: "center",
             height: "100%",
-            fontSize: 15,
+            fontSize: height / 2,
             color: "#ffffff",
           }}
         >
@@ -42,7 +44,7 @@ const SwitchBar = ({ onChange }) => {
             justifyContent: "center",
             alignItems: "center",
             height: "100%",
-            fontSize: 15,
+            fontSize: height / 2,
             color: "#ffffff",
           }}
         >
@@ -56,7 +58,7 @@ const SwitchBar = ({ onChange }) => {
             justifyContent: "center",
             alignItems: "center",
             height: "100%",
-            fontSize: 15,
+            fontSize: height / 2,
             color: "#99A4AF",
           }}
         >
@@ -70,7 +72,7 @@ const SwitchBar = ({ onChange }) => {
             justifyContent: "center",
             alignItems: "center",
             height: "100%",
-            fontSize: 15,
+            fontSize: height / 2,
             color: "#99A4AF",
           }}
         >
