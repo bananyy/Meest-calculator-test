@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../button/Button";
 import { PersonInfo } from "./PersonInfo";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -7,19 +7,34 @@ import dataNames from "./dataNames";
 import SwitchBar from "./SwitchBar";
 import { ModalResult } from "./ModalResult";
 import CustomSelect from "./CustomSelect";
-import { postJson } from "../../api";
+import { fetchJson, postJson } from "../../api";
 
 export function CalcSection({ brands }) {
   const [selectedGender, setSelectedGender] = useState(Object.keys(dataNames.gendersList)[0]);
-  // const [selectedBodyPart, setSelectedBodyPart] = useState("none");
   const [selectedBrand, setSelectedBrand] = useState("none");
   const [selectedCl, setSelectedCl] = useState("none");
   const [inputData, setInputData] = useState({});
   const [selectedMetric, setselectedMetric] = useState("cm");
   const [showResultMenu, setShowResultMenu] = useState(false);
 
-  const isFilled = selectedBrand !== "none" && selectedCl !== "none";
+  const [bodyParameters, setBodyParameters] = useState([]);
 
+  useEffect(() => {
+    selectedBrand != 'none' &&
+      fetchJson("api/v1/bodyParameters")
+        .then((data) => {
+          setBodyParameters(data);
+        })
+        .catch((err) => {
+          // handle errors
+          console.log(err);
+        });
+    // .finally(() => {
+
+    // });
+  }, [selectedBrand]);
+
+  const isFilled = selectedBrand !== "none" && selectedCl !== "none";
   const handleSelectionChange = (newValue, setSelectedValue) => {
     if (newValue !== setSelectedValue) {
       setSelectedValue(newValue);
@@ -29,11 +44,7 @@ export function CalcSection({ brands }) {
   const handleGenderClick = (type) => {
     handleSelectionChange(type, setSelectedGender);
   };
-  // const handlePartChange = (part) => {
-  //   handleSelectionChange(part, setSelectedBodyPart);
-  //   handleSelectionChange("none", setSelectedCl);
-  //   handleSelectionChange({}, setInputData);
-  // };
+
   const handleBrandChange = (brand) => {
     handleSelectionChange(brand, setSelectedBrand);
   };
@@ -64,6 +75,7 @@ export function CalcSection({ brands }) {
         onClick={() => handleGenderClick(gender)}
         onChange={handleInputChange}
         isSelected={selectedGender === gender}
+        bodyParameters={bodyParameters}
       />
     ));
   };

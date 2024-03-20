@@ -1,10 +1,14 @@
 import React from "react";
 import inputPositions from "./inputPositions";
-import { parametersBodyPart } from "./parametersBodyPart";
 import dataNames from "./dataNames";
 
 export function PersonInfo(props) {
-  const { gender, clothesType, inputData, isSelected, onClick, onChange } = props;
+  const { gender, clothesType, inputData, isSelected, onClick, onChange, bodyParameters } = props;
+  const bodyParametersObject = {};
+  bodyParameters.forEach((item) => {
+    const { gender, bodyParameters } = item;
+    bodyParametersObject[gender] = bodyParameters;
+  });
 
   return (
     <div
@@ -21,16 +25,16 @@ export function PersonInfo(props) {
               isSelected ? "selected-person-block" : "non-selected-person-block"
             }`}
           />
-          {isSelected && clothesType != 'none' && (
+          {isSelected && clothesType != "none" && (
             <>
-              {parametersBodyPart[gender][clothesType].map((name) => (
+              {bodyParametersObject[gender][clothesType].map((name) => (
                 <img
                   src={`${import.meta.env.BASE_URL}/assets/images/${gender}/parameters/${name}.png`}
                   className="absolute green-diagram-img appear-animation"
                   key={name}
                 />
               ))}
-              {parametersBodyPart[gender][clothesType].map((name) => (
+              {bodyParametersObject[gender][clothesType].map((name) => (
                 <div
                   className="input-green-diagram-block appear-animation"
                   style={{

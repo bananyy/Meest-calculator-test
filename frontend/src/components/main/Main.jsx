@@ -38,6 +38,7 @@ export function MainSection() {
     // })();
   }, []);
 
+
   return (
     <>
       <section id="about-section">
