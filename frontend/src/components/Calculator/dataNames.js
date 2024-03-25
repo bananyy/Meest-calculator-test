@@ -1,32 +1,24 @@
 const dataNames = {
-  personTypes: ["men", "women", "child"],
-  bodyParts: ["head", "top", "low", "footwear"],
-  brands: ["adidas", "asos", "columbia", "gap", "massimoDutti", "newBalance", "puma"],
-  typeClothes: {
-    head: ["hat"],
-    top: ["tshirt", "sweater", "shirt", "sweatshirt", "singlet", "jacket"],
-    low: ["jeans", "skirts", "shorts", "pants"],
-    footwear: ["trainers", "shoes"],
-  },
-  translateBodyParts: {
-    none: "Категорії",
-    head: "Головний убір",
-    top: "Верхня частина тіла",
-    low: "Нижня частина тіла",
-    footwear: "Взуття",
-  },
-  translateBrands: {
-    none: "Бренд",
-    adidas: "Adidas",
-    asos: "Asos",
-    columbia: "Columbia",
-    massimoDutti: "Massimo Dutti",
-    gap: "Gap",
-    newBalance: "New Balance",
-    puma: "Puma",
+  // brands: ["adidas", "asos", "columbia", "gap", "massimoDutti", "newBalance", "puma"],
+
+  // translateBrands: {
+  //   none: "Бренд",
+  //   adidas: "Adidas",
+  //   asos: "Asos",
+  //   columbia: "Columbia",
+  //   massimoDutti: "Massimo Dutti",
+  //   gap: "Gap",
+  //   newBalance: "New Balance",
+  //   puma: "Puma",
+  // },
+
+  gendersList: {
+    men: "Чоловік",
+    women: "Жінка",
+    child: "Дитина",
   },
 
-  translateTypeClothes: {
+  clothesType: {
     none: "Тип одягу",
     hat: "Капелюх",
     tshirt: "Футболки",
@@ -35,7 +27,6 @@ const dataNames = {
     sweatshirt: "Світшоти",
     singlet: "Майки",
     jacket: "Піджаки",
-    none: "Тип одягу",
     jeans: "Джинси",
     skirts: "Спідниці",
     shorts: "Шорти",
@@ -53,12 +44,6 @@ const dataNames = {
     pants_length: "Внутрішня довжина штанів",
     foot_length: "Довжина стопи",
   },
-
-  translateGenders:{
-    men: 'Чоловік',
-    women: 'Жінка',
-    child: 'Дитина',
-  }
 };
 
 export default dataNames;

@@ -1,23 +1,19 @@
 import React from "react";
 import inputPositions from "./inputPositions";
-import { parametersBodyPart } from "./parametersBodyPart";
 import dataNames from "./dataNames";
 
 export function PersonInfo(props) {
-  const { gender, part, clothesType, inputData, isSelected, onClick, onChange } = props;
-
-  // const genderPositions = inputPositions[gender];
-  // const partPositions = genderPositions[part];
-  // const inputNames = partPositions ? Object.keys(partPositions) : [];
-
-  // const genderParameters = parametersBodyPart[gender];
-  // const partParameters = genderParameters[part];
-  // const typeClothesParameters = partParameters[clothesType ? clothesType : 'none'];
+  const { gender, clothesType, inputData, isSelected, onClick, onChange, bodyParameters } = props;
+  const bodyParametersObject = {};
+  bodyParameters.forEach((item) => {
+    const { gender, bodyParameters } = item;
+    bodyParametersObject[gender] = bodyParameters;
+  });
 
   return (
     <div
       className={`item-person-block ${isSelected ? "selected-person" : ""} ${
-        part != "none" && isSelected ? "translate-left" : ""
+        clothesType != "none" && isSelected ? "translate-left" : ""
       }`}
     >
       <div className="h-full flex justify-center m-auto cursor-default">
@@ -29,16 +25,16 @@ export function PersonInfo(props) {
               isSelected ? "selected-person-block" : "non-selected-person-block"
             }`}
           />
-          {isSelected && part != "none" && (
+          {isSelected && clothesType != "none" && (
             <>
-              {parametersBodyPart[gender][part][clothesType].map((name) => (
+              {bodyParametersObject[gender][clothesType].map((name) => (
                 <img
                   src={`${import.meta.env.BASE_URL}/assets/images/${gender}/parameters/${name}.png`}
                   className="absolute green-diagram-img appear-animation"
                   key={name}
                 />
               ))}
-              {parametersBodyPart[gender][part][clothesType].map((name) => (
+              {bodyParametersObject[gender][clothesType].map((name) => (
                 <div
                   className="input-green-diagram-block appear-animation"
                   style={{
@@ -61,7 +57,7 @@ export function PersonInfo(props) {
                     type="number"
                     className="input-green-diagram appear-animation z-5"
                     name={name}
-                    value={inputData[name]}
+                    value={inputData[name] || ""}
                     onClick={(event) => event.stopPropagation()}
                     onChange={(event) => onChange(name, event.target.value)}
                     maxLength="4"
