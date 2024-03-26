@@ -44,7 +44,7 @@ export function ModalResult({ onClickClose, gender, clothesType }) {
       <p className="text-sm-p sm:text-lg-p text-[#787474] md:hidden text-center">
         Існує 94% ймовірності, що вам підійде цей розмір
       </p>
-      <div className="flex absolute w-full left-0 justify-center max-xs:bottom-12 sm:bottom-8 md:bottom-16">
+      <div className="flex absolute w-full left-0 justify-center bottom-12 sm:bottom-8 md:bottom-16">
         <div className="max-w-[250px] md:max-w-[300px] py-[5px] relative">
           <div className="h-[48px] w-[48px] md:h-[85px] md:w-[85px] bg-[#E0EEFF] rounded-full absolute left-[0px] md:left-[-40px] top-[5px] md:top-0 z-30"></div>
           <button
