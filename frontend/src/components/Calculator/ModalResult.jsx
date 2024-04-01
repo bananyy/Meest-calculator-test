@@ -4,7 +4,7 @@ import Measure from "react-measure";
 
 export function ModalResult({ onClickClose, gender, clothesType }) {
   return (
-    <div className="absolute w-full h-full bg-white left-0 top-0 rounded-[40px] calc-shadow-box pb-[30px] px-[20px] py-[65px] sm:px-[40px] lg:py-[45px] md:px-[60px] lg:px-[100px] z-20 calc-shadow-box appear-animation-result">
+    <div className="absolute min-h-[560px] w-full h-full bg-white left-0 top-0 rounded-[40px] calc-shadow-box pb-[30px] px-[20px] py-[65px] sm:px-[40px] lg:py-[45px] md:px-[60px] lg:px-[100px] z-20 calc-shadow-box appear-animation-result">
       <h2 className="text-sm-h sm:text-md-h lg:text-lg-h text-center">Рекомендований розмір</h2>
       <div className="flex justify-between mb-8 mt-8 xs:mt-20 sm:mt-14 md:mt-20 gap-8 md:gap-16">
         <Measure bounds>
@@ -45,7 +45,7 @@ export function ModalResult({ onClickClose, gender, clothesType }) {
         Існує 94% ймовірності, що вам підійде цей розмір
       </p>
       <div className="flex absolute w-full left-0 justify-center bottom-12 sm:bottom-8 md:bottom-16">
-        <div className="max-w-[250px] md:max-w-[300px] py-[5px] relative">
+        <div className="max-w-[200px] sm:max-w-[250px] md:max-w-[300px] py-[5px] relative">
           <div className="h-[48px] w-[48px] md:h-[85px] md:w-[85px] bg-[#E0EEFF] rounded-full absolute left-[0px] md:left-[-40px] top-[5px] md:top-0 z-30"></div>
           <button
             onClick={() => {
