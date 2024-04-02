@@ -1,17 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('./db_connection');
 
-// const ShoeSizes = sequelize.define('Shoe_Sizes', {
-//     Gender: DataTypes.STRING,
-//     Brand: DataTypes.STRING,
-//     European_Size: DataTypes.INTEGER,
-//     American_Size: DataTypes.INTEGER,
-//     UK_Size: DataTypes.INTEGER,
-//     Foot_Length: DataTypes.FLOAT
-// }, {
-//     timestamps: false
-// });
-
 const Brand = sequelize.define('Brand', {
     brand_id: {
       type: Sequelize.INTEGER,
@@ -22,12 +11,7 @@ const Brand = sequelize.define('Brand', {
       type: Sequelize.STRING
     }
   }, {
-    // Don't add the timestamp attributes (updatedAt, createdAt)
     timestamps: false,
-  
-    // If your table name is different from the model name in plural
-    // and not using the default behavior which Sequelize pluralizes table names
-    // then you can explicitly define the table name via `tableName` attribute
     tableName: 'Brands'
   });
 
@@ -43,7 +27,7 @@ const Brand = sequelize.define('Brand', {
     }
 }, {
     timestamps: false,
-    tableName: 'ClothingTypes'  // Adjust if your table name is different
+    tableName: 'ClothingTypes'
 });
 
 
@@ -67,10 +51,9 @@ const SizeMatching = sequelize.define('SizeMatching', {
           key: 'type_id'
       }
   }
-  // Include other fields as necessary
 }, {
   timestamps: false,
-  tableName: 'SizeMatching'  // Adjust if your table name is different
+  tableName: 'SizeMatching'
 });
 
 

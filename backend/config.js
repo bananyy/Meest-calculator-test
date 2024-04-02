@@ -1,4 +1,3 @@
-// Import and configure dotenv
 require('dotenv').config();
 
 const config = {
