@@ -11,21 +11,6 @@ router.use((req, res, next) => {
     next()
 })
 
-// router.get('/', (req, res) => {
-    // pool.getConnection((err, connection) => {
-    //     connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
-    //         console.log('The solution is: ', rows[0].solution);
-    //         connection.release();
-
-    //         res.send('1 page');
-    //     });
-    // });
-
-// })
-
-// router.get('/2', (req, res) => {
-//     res.send('2 page')
-// })
 
 
 router.get('/brands', async (req, res) => {
@@ -51,7 +36,6 @@ router.get('/typesofclothing/:brand/', async (req, res) => {
         });
 
         if (brand && brand.SizeMatchings) {
-            // Using a Set to ensure uniqueness
             const types = [...new Set(brand.SizeMatchings.map(match => match.ClothingType.name))];
             res.json(types);
         } else {
