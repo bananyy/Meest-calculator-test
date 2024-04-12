@@ -1,8 +1,6 @@
-const mysql = require('mysql2');
 const config = require('./config');
 const { Sequelize, DataTypes } = require('sequelize');
 
-// const pool = mysql.createPool(config.database);
 
 const sequelize = new Sequelize(process.env.DEVELOPMENT_DATABASE_NAME, process.env.DEVELOPMENT_DATABASE_USER, process.env.DEVELOPMENT_DATABASE_PASSWORD, {
     dialect: 'mysql',
