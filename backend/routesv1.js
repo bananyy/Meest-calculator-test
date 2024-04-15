@@ -20,23 +20,23 @@ router.get('/all-brands', async (req, res) => {
 
 
 router.get('/body-parameters', async (req, res) => {
-//   const transformData = (data) => {
-//     return data.reduce((acc, { gender, clothingType, bodyParameters }) => {
-//         if (!acc[gender]) {
-//             acc[gender] = {};
-//         }
+  const transformData = (data) => {
+    return data.reduce((acc, { gender, clothingType, bodyParameters }) => {
+        if (!acc[gender]) {
+            acc[gender] = {};
+        }
 
 
-//         if (!acc[gender][clothingType]) {
-//             acc[gender][clothingType] = [];
-//         }
+        if (!acc[gender][clothingType]) {
+            acc[gender][clothingType] = [];
+        }
 
 
-//         acc[gender][clothingType].push(bodyParameters);
+        acc[gender][clothingType].push(bodyParameters);
 
-//         return acc;
-//     }, {});
-// };
+       return acc;
+    }, {});
+}; 
 
   try {
     const query = `
