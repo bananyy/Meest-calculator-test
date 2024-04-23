@@ -1,5 +1,5 @@
 import React from "react";
-import { MultiSlider } from "./MultiSlider";
+import { MultiSlider } from "../sliders/MultiSlider";
 
 export function BrandsInfo({ brands, isLoading }) {
   const brandKeys = brands.map((brand) => brand.key);
