@@ -5,7 +5,7 @@ import { SwitchInfo } from "../InfoContent/SwitchInfo";
 import { CalcSection } from "../Calculator/CalcSection";
 import { fetchJson } from "../../api";
 
-export function MainSection() {
+export function HomePage() {
   const [brands, setBrands] = useState([]);
   const [isBrandsLoading, setIsBrandsLoading] = useState(false);
 
@@ -17,7 +17,6 @@ export function MainSection() {
         setBrands(data);
       })
       .catch((err) => {
-        // handle errors
         console.log(err);
       })
       .finally(() => {

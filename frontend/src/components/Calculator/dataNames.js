@@ -1,16 +1,4 @@
 const dataNames = {
-  // brands: ["adidas", "asos", "columbia", "gap", "massimoDutti", "newBalance", "puma"],
-
-  // translateBrands: {
-  //   none: "Бренд",
-  //   adidas: "Adidas",
-  //   asos: "Asos",
-  //   columbia: "Columbia",
-  //   massimoDutti: "Massimo Dutti",
-  //   gap: "Gap",
-  //   newBalance: "New Balance",
-  //   puma: "Puma",
-  // },
 
   gendersList: {
     men: "Чоловік",
