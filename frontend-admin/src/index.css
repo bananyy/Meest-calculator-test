@@ -11,10 +11,10 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("fonts/Montserrat-VariableFont_wght.ttf");
+  src: url('../public/assets/fonts/Montserrat-VariableFont_wght.ttf');
 }
 
 @font-face {
   font-family: "Offside";
-  src: url("fonts/Offside-Regular.ttf");
+  src: url("../public/assets/fonts/Offside-Regular.ttf");
 }

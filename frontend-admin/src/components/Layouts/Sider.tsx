@@ -26,7 +26,16 @@ const Sider = ({}) => {
   );
 
   return (
-    <Sider width={300}>
+    <Sider width={300} className="!bg-white shadow-xl">
+      <a href="#">
+        <div className="m-6 w-32">
+          <img
+            src={`${import.meta.env.BASE_URL}/assets/images/admin-logo.png`}
+            className="w-full"
+            alt=""
+          />
+        </div>
+      </a>
       <Menu mode="inline" style={{ height: "100vh", borderRight: 0 }} items={items} />
     </Sider>
   );

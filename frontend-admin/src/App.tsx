@@ -1,13 +1,13 @@
 import { Layout } from "antd";
 
-import Sider from "./components/Sider";
-import Header from "./components/Header";
+import Sider from "./components/Layouts/Sider";
+import Header from "./components/Layouts/Header";
 
 const { Content } = Layout;
 
 const App = () => {
   return (
-    <Layout>
+    <Layout style={{ background: "white" }}>
       <Sider />
       <Layout>
         <Header />
