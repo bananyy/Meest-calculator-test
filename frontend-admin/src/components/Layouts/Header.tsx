@@ -2,11 +2,19 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Input, Layout } from "antd";
 import ProfileNav from "../ProfileNav";
 
-const Header = ({}) => {
+export interface Props {
+  isMobile: boolean;
+}
+
+const Header = ({ isMobile = false }: Props) => {
   const { Header } = Layout;
 
   return (
-    <Header className="flex items-center justify-between bg-white shadow-inner">
+    <Header
+      className={`flex items-center justify-between bg-white shadow-inner gap-5 ${
+        isMobile ? "!px-4" : ""
+      }`}
+    >
       <Input
         placeholder="Пошук"
         prefix={<SearchOutlined className="text-[20px]" />}

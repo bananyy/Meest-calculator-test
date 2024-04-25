@@ -1,8 +1,18 @@
 import React from "react";
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from "@ant-design/icons";
-import { Layout, Menu, MenuProps } from "antd";
+import {
+  CaretLeftOutlined,
+  CaretRightOutlined,
+  LaptopOutlined,
+  NotificationOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { Button, Layout, Menu, MenuProps } from "antd";
 
-const Sider = ({}) => {
+export interface Props {
+  isMobile: boolean;
+}
+
+const Sider = ({ isMobile }: Props) => {
   const { Sider } = Layout;
 
   const items: MenuProps["items"] = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
@@ -26,18 +36,36 @@ const Sider = ({}) => {
   );
 
   return (
-    <Sider width={300} className="!bg-white shadow-xl">
-      <a href="#">
-        <div className="m-6 w-32">
-          <img
-            src={`${import.meta.env.BASE_URL}/assets/images/admin-logo.png`}
-            className="w-full"
-            alt=""
-          />
+    <>
+      <Sider
+        width={300}
+        className="!bg-white shadow-xl relative"
+        trigger={null}
+        collapsible
+        collapsed={isMobile && true}
+      >
+        <div className="absolute top-0 w-full m-3 p-2">
+          <a href="#">
+            {!isMobile ? (
+              <img
+                src={`${import.meta.env.BASE_URL}/assets/images/admin-logo.png`}
+                className="w-6/12"
+                alt=""
+              />
+            ) : (
+              <img
+                src={`${import.meta.env.BASE_URL}/assets/images/admin-logo-mobile.png`}
+                className="w-[40px]"
+                alt=""
+              />
+            )}
+          </a>
         </div>
-      </a>
-      <Menu mode="inline" style={{ height: "100vh", borderRight: 0 }} items={items} />
-    </Sider>
+
+        <div className="h-[120px]"></div>
+        <Menu mode="inline" style={{ height: "100vh", borderRight: 0 }} items={items} />
+      </Sider>
+    </>
   );
 };
 
