@@ -8,23 +8,22 @@ import { useEffect, useState } from "react";
 const { Content } = Layout;
 
 const App = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const handleResize = () => {
-    if (window.innerWidth < 720) {
+    if (window.innerWidth < 768) {
       setIsMobile(true);
     } else {
       setIsMobile(false);
     }
   };
-  setTimeout(handleResize, 0);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
   });
 
   return (
-    <Layout style={{ background: "white" }}>
+    <Layout style={{ background: "white", height: "100vh" }}>
       <Sider isMobile={isMobile} />
       <Layout>
         <Header isMobile={isMobile} />

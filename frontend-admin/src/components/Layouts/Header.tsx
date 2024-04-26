@@ -6,7 +6,7 @@ export interface Props {
   isMobile: boolean;
 }
 
-const Header = ({ isMobile = false }: Props) => {
+const Header = ({ isMobile }: Props) => {
   const { Header } = Layout;
 
   return (

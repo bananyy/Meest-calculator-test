@@ -1,12 +1,6 @@
-import React from "react";
-import {
-  CaretLeftOutlined,
-  CaretRightOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import { Button, Layout, Menu, MenuProps } from "antd";
+import React, { useState } from "react";
+import { LaptopOutlined, NotificationOutlined, UserOutlined } from "@ant-design/icons";
+import { Layout, Menu, MenuProps } from "antd";
 
 export interface Props {
   isMobile: boolean;
@@ -39,10 +33,10 @@ const Sider = ({ isMobile }: Props) => {
     <>
       <Sider
         width={300}
-        className="!bg-white shadow-xl relative"
+        className="!bg-white shadow-xl relative sider"
         trigger={null}
         collapsible
-        collapsed={isMobile && true}
+        collapsed={isMobile}
       >
         <div className="absolute top-0 w-full m-3 p-2">
           <a href="#">
@@ -63,7 +57,7 @@ const Sider = ({ isMobile }: Props) => {
         </div>
 
         <div className="h-[120px]"></div>
-        <Menu mode="inline" style={{ height: "100vh", borderRight: 0 }} items={items} />
+        <Menu mode="inline" style={{ borderRight: 0 }} items={items} />
       </Sider>
     </>
   );
