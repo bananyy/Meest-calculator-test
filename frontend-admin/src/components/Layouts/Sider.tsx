@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from "@ant-design/icons";
 import { Layout, Menu, MenuProps } from "antd";
 

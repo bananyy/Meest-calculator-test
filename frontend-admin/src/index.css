@@ -19,8 +19,6 @@ textarea:focus, input:focus{
   font-family: Montserrat;
 }
 
-
-
 @font-face {
   font-family: "Montserrat";
   src: url('../public/assets/fonts/Montserrat-VariableFont_wght.ttf');
@@ -50,6 +48,7 @@ textarea:focus, input:focus{
 .shadow-box{
   box-shadow: 0 0 40px rgba(134, 134, 134, 0.199);
 }
+
 
 @media screen and (max-width: 767.98px) {
   .bg-adminlogin{
