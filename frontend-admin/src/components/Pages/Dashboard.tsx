@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 
-import { Layout } from "antd";
+import { Button, Layout } from "antd";
 import Header from "../Layouts/Header";
 import Sider from "../Layouts/Sider";
+import { useAuth } from "../hooks/AuthProvider";
 
 const { Content } = Layout;
 
 const Dashboard = () => {
+  const auth = useAuth();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const handleResize = () => {
@@ -34,7 +36,7 @@ const Dashboard = () => {
               minHeight: 280,
             }}
           >
-            Content
+            <Button onClick={() => auth.logOut()}>logout</Button>
           </Content>
         </Layout>
       </Layout>

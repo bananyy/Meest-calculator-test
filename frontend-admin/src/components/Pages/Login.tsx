@@ -1,23 +1,13 @@
 import { Button } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { useState, useContext, MouseEvent, ChangeEvent } from "react";
-
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../contexts/AuthContext";
+import { useState, ChangeEvent } from "react";
+import { useAuth } from "../hooks/AuthProvider";
 
 const Login = () => {
   const [input, setInput] = useState({
     username: "",
     password: "",
   });
-
-  const handleSubmitEvent = (e: MouseEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (input.username !== "" && input.password !== "") {
-      //dispatch action from hooks
-    }
-    alert("please provide a valid input");
-  };
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -27,17 +17,17 @@ const Login = () => {
     }));
   };
 
-  const { authenticated, setAuthenticated } = useContext(AuthContext);
-
-  const navigate = useNavigate();
-
-  const handleLogin = () => {
-    setAuthenticated(true);
-    navigate("/meest-admin/dashboard");
+  const auth = useAuth();
+  const handleSubmitEvent = () => {
+    if (input.username !== "" && input.password !== "") {
+      auth.loginAction(input);
+      return;
+    }
+    alert("please provide a valid input");
   };
 
   return (
-    <form onSubmit={handleSubmitEvent}>
+    <form>
       <div className="bg-adminlogin flex flex-col px-4">
         <div className="m-auto relative">
           <div className="max-w-[670px] h-[500px] md:h-[450px] text-mainblue m-auto flex flex-col md:flex-row relative rounded-3xl overflow-hidden shadow-box">
@@ -92,7 +82,7 @@ const Login = () => {
             </div>
           </div>
           <div className="left-0 bottom-[-70px] absolute flex justify-center w-full">
-            <Button type="primary" shape="round" size={"large"} onClick={() => handleLogin()}>
+            <Button type="primary" shape="round" size={"large"} onClick={handleSubmitEvent}>
               Log In
             </Button>
           </div>
