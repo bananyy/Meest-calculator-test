@@ -8,6 +8,7 @@ const Routes = () => {
   return (
     <Router>
       <Route path="meest-admin/login" element={<Login />} />
+      <Route path="meest-admin/" element={<Dashboard />} />
       <Route element={<PrivateRoute />}>
         <Route path="meest-admin/*" element={<Navigate to="/meest-admin/dashboard" />}></Route>
       </Route>
