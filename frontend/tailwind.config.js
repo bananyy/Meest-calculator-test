@@ -14,6 +14,7 @@ export default {
         mainblue: "#0054A4",
         textblack: "#303A45",
         green: "#28D3A1",
+        lightgrey: "#F3F8FE",
       },
     },
     fontSize: {
