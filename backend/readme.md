@@ -13,5 +13,5 @@ Check the [Express.js Documentation](https://expressjs.com/) and [Sequelize Docu
 - To run project use ```npm start```.
 
 ## Available endpoints
-- ```/api/v1/all-brands``` return all brands.
-- ```/api/v1/body-parameters``` return body parameters for each category.
+- ```/api/all-brands``` return all brands.
+- ```/api/parameters/gender/female/brand/BrandX/type/Pants``` return body parameters for each category.

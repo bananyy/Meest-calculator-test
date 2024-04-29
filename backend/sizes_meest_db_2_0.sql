@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Pát 12. dub 2024, 12:50
+-- Vytvořeno: Pon 29. dub 2024, 11:59
 -- Verze serveru: 10.4.32-MariaDB
 -- Verze PHP: 8.2.12
 
@@ -29,21 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `body_parameters` (
   `parameter_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `part_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Vypisuji data pro tabulku `body_parameters`
 --
 
-INSERT INTO `body_parameters` (`parameter_id`, `name`) VALUES
-(1, 'head_length'),
-(2, 'chest_length'),
-(3, 'waist_length'),
-(4, 'hip_length'),
-(5, 'foot_length'),
-(6, 'height'),
-(7, 'pants_length');
+INSERT INTO `body_parameters` (`parameter_id`, `name`, `part_name`) VALUES
+(1, 'head_length', 'Довжина голови'),
+(2, 'chest_length', 'Довжина грудей'),
+(3, 'waist_length', 'Довжина талії'),
+(4, 'hip_length', 'Довжина стегна'),
+(5, 'foot_length', 'Довжина стопи'),
+(6, 'height', 'Зріст'),
+(7, 'pants_length', 'Довжина штанів');
 
 -- --------------------------------------------------------
 
@@ -53,17 +54,18 @@ INSERT INTO `body_parameters` (`parameter_id`, `name`) VALUES
 
 CREATE TABLE `brands` (
   `brand_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `brand_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Vypisuji data pro tabulku `brands`
 --
 
-INSERT INTO `brands` (`brand_id`, `name`) VALUES
-(1, 'BrandX'),
-(2, 'BrandY'),
-(3, 'BrandZ');
+INSERT INTO `brands` (`brand_id`, `name`, `brand_name`) VALUES
+(1, 'BrandX', NULL),
+(2, 'BrandY', NULL),
+(3, 'BrandZ', NULL);
 
 -- --------------------------------------------------------
 
@@ -82,11 +84,11 @@ CREATE TABLE `clothing_body_requirements` (
 --
 
 INSERT INTO `clothing_body_requirements` (`requirement_id`, `clothing_type_id`, `parameter_id`) VALUES
-(6, 1, 3),
-(7, 1, 3),
-(9, 4, 2),
-(10, 4, 6),
-(11, 3, 4);
+(12, 3, 4),
+(13, 2, 3),
+(14, 2, 4),
+(15, 1, 2),
+(16, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -97,18 +99,41 @@ INSERT INTO `clothing_body_requirements` (`requirement_id`, `clothing_type_id`, 
 CREATE TABLE `clothing_types` (
   `type_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `gender_category` enum('Men','Women','Children') NOT NULL
+  `gender_category` enum('Men','Women','Children') NOT NULL,
+  `type_name` varchar(255) DEFAULT NULL,
+  `gender_id` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Vypisuji data pro tabulku `clothing_types`
 --
 
-INSERT INTO `clothing_types` (`type_id`, `name`, `gender_category`) VALUES
-(1, 'Shirt', 'Men'),
-(2, 'Pants', 'Women'),
-(3, 'Dress', 'Children'),
-(4, 'Shirt', 'Women');
+INSERT INTO `clothing_types` (`type_id`, `name`, `gender_category`, `type_name`, `gender_id`) VALUES
+(1, 'Shirt', 'Men', NULL, 1),
+(2, 'Pants', 'Women', NULL, 2),
+(3, 'Dress', 'Children', NULL, 3),
+(4, 'Shirts', 'Men', NULL, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `genders`
+--
+
+CREATE TABLE `genders` (
+  `gender_id` bigint(20) UNSIGNED NOT NULL,
+  `gender_category` varchar(50) DEFAULT NULL,
+  `gender_name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Vypisuji data pro tabulku `genders`
+--
+
+INSERT INTO `genders` (`gender_id`, `gender_category`, `gender_name`) VALUES
+(1, 'male', 'Чоловік'),
+(2, 'female', 'Жінка'),
+(3, 'children', 'Дитина');
 
 -- --------------------------------------------------------
 
@@ -197,9 +222,10 @@ CREATE TABLE `size_matching` (
 --
 
 INSERT INTO `size_matching` (`match_id`, `brand_id`, `type_id`, `size_id`, `measurement_id`, `min_value`, `max_value`) VALUES
-(1, 1, 1, 1, 1, 80.00, 90.00),
-(2, 1, 2, 2, 2, 65.00, 75.00),
-(3, 2, 3, 3, 3, 90.00, 100.00);
+(1, 1, 3, 1, 1, 80.00, 90.00),
+(4, 1, 2, 3, 2, 80.00, 90.00),
+(5, 2, 1, 2, 3, 50.00, 60.00),
+(6, 3, 1, 1, 2, 80.00, 90.00);
 
 -- --------------------------------------------------------
 
@@ -252,7 +278,14 @@ ALTER TABLE `clothing_body_requirements`
 -- Indexy pro tabulku `clothing_types`
 --
 ALTER TABLE `clothing_types`
-  ADD PRIMARY KEY (`type_id`);
+  ADD PRIMARY KEY (`type_id`),
+  ADD KEY `gender_id` (`gender_id`);
+
+--
+-- Indexy pro tabulku `genders`
+--
+ALTER TABLE `genders`
+  ADD PRIMARY KEY (`gender_id`);
 
 --
 -- Indexy pro tabulku `measurements`
@@ -310,13 +343,19 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT pro tabulku `clothing_body_requirements`
 --
 ALTER TABLE `clothing_body_requirements`
-  MODIFY `requirement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `requirement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pro tabulku `clothing_types`
 --
 ALTER TABLE `clothing_types`
   MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pro tabulku `genders`
+--
+ALTER TABLE `genders`
+  MODIFY `gender_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pro tabulku `measurements`
@@ -340,7 +379,7 @@ ALTER TABLE `size_conversions`
 -- AUTO_INCREMENT pro tabulku `size_matching`
 --
 ALTER TABLE `size_matching`
-  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `match_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pro tabulku `users`
@@ -358,6 +397,12 @@ ALTER TABLE `users`
 ALTER TABLE `clothing_body_requirements`
   ADD CONSTRAINT `clothing_body_requirements_ibfk_1` FOREIGN KEY (`clothing_type_id`) REFERENCES `clothing_types` (`type_id`),
   ADD CONSTRAINT `clothing_body_requirements_ibfk_2` FOREIGN KEY (`parameter_id`) REFERENCES `body_parameters` (`parameter_id`);
+
+--
+-- Omezení pro tabulku `clothing_types`
+--
+ALTER TABLE `clothing_types`
+  ADD CONSTRAINT `clothing_types_ibfk_1` FOREIGN KEY (`gender_id`) REFERENCES `genders` (`gender_id`);
 
 --
 -- Omezení pro tabulku `size_conversions`
