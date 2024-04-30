@@ -1,9 +1,17 @@
-import { MainSection } from "./components/main/Main";
+import { Routes, Route, Link } from 'react-router-dom'
+import { AdminLogin } from "./components/pages/AdminLogin";
+import { HomePage } from "./components/pages/HomePage";
+import { AdminMainPage } from './components/pages/AdminMainPage';
 
 function App() {
   return (
     <>
-      <MainSection></MainSection>
+    <div></div>
+      <Routes>
+        <Route path='/Meest-calculator-test' element={<HomePage />} />
+        <Route path='/Meest-calculator-test/admin' element={<AdminLogin />} />
+        <Route path='/Meest-calculator-test/dashboard' element={<AdminMainPage />}></Route>
+      </Routes>
     </>
   );
 }

@@ -202,7 +202,7 @@ textarea:focus, input:focus{
     font-size: 15px;
 }
 
-.calc-shadow-box{
+.shadow-box{
     box-shadow: 0 0 40px rgba(134, 134, 134, 0.199);
 }
 
@@ -222,6 +222,26 @@ textarea:focus, input:focus{
     justify-content: center;
     align-items: center;
 }
+
+.bg-adminlogin{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(90deg, #F3F8FE 0%, #F3F8FE 50%, #FFFFFF 50%, #FFFFFF 100%)
+}
+
+.input-loginpage{
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    border-bottom: 3px solid #2E73B4;
+    padding: 2px 10px 2px 30px;
+    font-weight: 500;
+    width: 100%;
+    font-size: 16px;
+}
+
+
+
+
 
 
 @media screen and (min-width: 768px){
@@ -265,7 +285,11 @@ textarea:focus, input:focus{
         height: 500px;
     }
 
+    .bg-adminlogin{
 
+        background: linear-gradient(180deg, #F3F8FE 0%, #F3F8FE 50%, #FFFFFF 50%, #FFFFFF 100%)
+    }
+    
 
 }
 

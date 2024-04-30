@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "../button/Button";
+import { Button } from "../buttons/BtnSuccess";
 import { PersonInfo } from "./PersonInfo";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Slider } from "./Slider";
+import { Slider } from "../sliders/Slider";
 import dataNames from "./dataNames";
 import SwitchBar from "./SwitchBar";
 import { ModalResult } from "./ModalResult";
@@ -107,7 +107,7 @@ export function CalcSection({ brands }) {
       <div className="flex flex-col items-center py-2 w-full">
         <div
           className={`w-full bg-[#EFF1F4] rounded-[40px] py-8 relative px-3 sm:px-6 md:px-8 lg:px-16 xl:px-24 my-8 ${
-            showResultMenu ? "" : "calc-shadow-box"
+            showResultMenu ? "" : "shadow-box"
           }`}
         >
           <h2 className="text-center text-sm-h sm:text-md-h lg:text-lg-h">Калькулятор розмірів</h2>

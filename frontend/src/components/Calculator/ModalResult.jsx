@@ -4,7 +4,7 @@ import Measure from "react-measure";
 
 export function ModalResult({ onClickClose, gender, clothesType }) {
   return (
-    <div className="absolute w-full h-full bg-white left-0 top-0 rounded-[40px] calc-shadow-box pb-[30px] px-[20px] py-[65px] sm:px-[40px] lg:py-[45px] md:px-[60px] lg:px-[100px] z-20 calc-shadow-box appear-animation-result">
+    <div className="absolute w-full h-full bg-white left-0 top-0 rounded-[40px] shadow-box pb-[30px] px-[20px] py-[65px] sm:px-[40px] lg:py-[45px] md:px-[60px] lg:px-[100px] z-20 shadow-box appear-animation-result">
       <h2 className="text-sm-h sm:text-md-h lg:text-lg-h text-center">Рекомендований розмір</h2>
       <div className="flex justify-between mb-8 mt-8 xs:mt-20 sm:mt-14 md:mt-20 gap-8 md:gap-16">
         <Measure bounds>
