@@ -11,10 +11,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: false
     },
-    gender_category: {
-      type: DataTypes.ENUM('Men','Women','Children'),
-      allowNull: false
-    },
     type_name: {
       type: DataTypes.STRING(255),
       allowNull: true
