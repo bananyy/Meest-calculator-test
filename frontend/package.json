@@ -24,7 +24,7 @@
     "yarn": "^1.22.21"
   },
   "engines": {
-    "node": "20.x"
+    "node": "21.x"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
