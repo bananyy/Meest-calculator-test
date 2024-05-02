@@ -2,7 +2,7 @@ import { Routes as Router, Route, Navigate } from "react-router-dom";
 
 import Login from "./components/Pages/Login";
 import Dashboard from "./components/Pages/Dashboard";
-import PrivateRoute from "./components/hooks/PrivateRoute";
+import PrivateRoute from "./components/Hooks/PrivateRoute";
 
 const Routes = () => {
   return (
