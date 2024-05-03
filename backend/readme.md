@@ -15,3 +15,4 @@ Check the [Express.js Documentation](https://expressjs.com/) and [Sequelize Docu
 ## Available endpoints
 - ```/api/all-brands``` return all brands.
 - ```/api/parameters/gender/female/brand/BrandX/type/Pants``` return body parameters for each category.
+- more added
