@@ -13,10 +13,16 @@ router.use((req, res, next) => {
   next()
 })
 
+
 router.get('/all-brands', async (req, res) => {
   try {
     const brands = await models.brands.findAll();
-    res.json(brands);
+    const transformedBrands = brands.map(brand => ({
+      id: brand.brand_id,
+      brand_name: brand.name,
+      img_url: brand.logo
+    }));
+        res.json(transformedBrands);
   } catch (error) {
     console.error('Error: ', error);
     res.status(500).send('Internal Server Error');
@@ -111,6 +117,157 @@ router.get('/parameters/gender/:gender/brand/:brandname/type/:typeofclothing', a
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+router.post('/brands', async (req, res) => {
+  const { gender } = req.body;
+  console.log(gender)
+  const transformData = (data) => {
+
+    const result = {};
+
+    data.forEach(({ gender, gender_name, brand, brand_name }) => {
+
+      // if (!result[gender]) {
+      //   result[gender] = {
+      //     gender: gender,
+      //     gender_name: gender_name,
+      //     brands_data: []
+      //   };
+      // }
+
+      // let brandData = result[gender].brands_data.find(b => b.brand === brand);
+      if (!result[brand]) {
+        result[brand] = {
+          brand: brand,
+          brand_name: brand_name,
+        };
+        // result[gender].brands_data.push(brandData);
+      }
+
+    });
+
+    
+
+    return Object.values(result);
+  };
+
+
+  try {
+    const query = `
+          SELECT
+          g.gender_category AS gender,
+          g.gender_name AS gender_name,
+          ct.name AS clothingType,
+          ct.type_name AS type_name,
+          ct.type_id AS type_id,
+          bp.name AS bodyParameters,
+          bp.part_name AS part_name,
+          b.brand_id AS brand,
+          b.name AS brand_name
+          FROM
+            clothing_types ct
+          JOIN clothing_body_requirements cbr ON ct.type_id = cbr.clothing_type_id
+          JOIN body_parameters bp ON cbr.parameter_id = bp.parameter_id
+          JOIN size_matching sm ON sm.type_id = ct.type_id
+          JOIN brands b ON sm.brand_id = b.brand_id
+          JOIN genders g ON ct.gender_id = g.gender_id
+          WHERE
+          g.gender_category = "${gender}"
+    `;
+
+    const [results, metadata] = await pool.query(query);
+    const transformedData = transformData(results);
+    res.json(transformedData);
+  } catch (err) {
+    console.error('Query failed: ', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+
+router.post('/clothes', async (req, res) => {
+    const { gender, brandname } = req.body;
+    console.log(brandname)
+    const transformData = (data) => {
+  
+      const result = {};
+  
+      data.forEach(({ type_id, gender, gender_name, clothingType, bodyParameters, part_name, brand, brand_name }) => {
+  
+        
+       
+  
+        // let clothingTypeData = result[gender].clothing_types.find(c => c.type === clothingType);
+
+        // if (!result[clothingTypeData]) {
+        //   result[brand] = {
+        // if (!clothingTypeData) {
+        //   result[type_id] = {
+        //     type: type_id,
+        //     type_name: clothingType,
+        //     body_parts: []
+        //   };
+        //   result[clothingTypeData].clothing_types.push(clothingTypeData);
+        // }
+  
+        // clothingTypeData.body_parts.push({
+        //   part: bodyParameters,
+        //   part_name: part_name
+        // });
+
+
+        if (!result[type_id]) {
+          result[type_id] = {
+            type: type_id,
+            type_name: clothingType,
+            body_parts: []
+          };
+        }
+    
+        // Push new body part data into the clothing type's body_parts array
+        result[type_id].body_parts.push({
+          part: bodyParameters,
+          part_name: part_name
+        });
+      });
+  
+      return Object.values(result);
+    };
+  
+  
+    try {
+      const query = `
+            SELECT
+            g.gender_category AS gender,
+            g.gender_name AS gender_name,
+            ct.name AS clothingType,
+            ct.type_name AS type_name,
+            ct.type_id AS type_id,
+            bp.name AS bodyParameters,
+            bp.part_name AS part_name,
+            b.brand_id AS brand,
+            b.name AS brand_name
+            FROM
+              clothing_types ct
+            JOIN clothing_body_requirements cbr ON ct.type_id = cbr.clothing_type_id
+            JOIN body_parameters bp ON cbr.parameter_id = bp.parameter_id
+            JOIN size_matching sm ON sm.type_id = ct.type_id
+            JOIN brands b ON sm.brand_id = b.brand_id
+            JOIN genders g ON ct.gender_id = g.gender_id
+            WHERE
+            g.gender_category = "${gender}" AND b.name = "${brandname}"
+      `;
+  
+      const [results, metadata] = await pool.query(query);
+      const transformedData = transformData(results);
+      res.json(transformedData);
+    } catch (err) {
+      console.error('Query failed: ', err);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
 
 
 

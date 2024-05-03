@@ -3,6 +3,7 @@ const app = express();
 const routes = require('./routesv1');
 
 const PORT = process.env.PORT || 3000;
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', routes);
 
