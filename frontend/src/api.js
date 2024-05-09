@@ -1,4 +1,4 @@
-const BASE_URL = "https://65f9e7303909a9a65b199efe.mockapi.io";
+const BASE_URL = "http://localhost:3000";
 
 export async function fetchJson(url, options) {
   const response = await fetch(`${BASE_URL}/${url}`, options);

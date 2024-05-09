@@ -1,9 +1,6 @@
-import React from "react";
 import { MultiSlider } from "../sliders/MultiSlider";
 
 export function BrandsInfo({ brands, isLoading }) {
-  const brandKeys = brands.map((brand) => brand.key);
-
   return (
     <>
       <h2 className="text-[30px] sm:text-[40px] lg:text-[70px] text-mainblue mb-10 md:mb-12">
@@ -21,14 +18,14 @@ export function BrandsInfo({ brands, isLoading }) {
       {!isLoading && (
         <div className="w-full relative lg:my-10">
           <MultiSlider>
-            {brandKeys.map((brandKey) => (
+            {brands.map((brand) => (
               <div
-                key={brandKey}
+                key={brand.key}
                 className="flex items-center justify-center px-2 sm:px-3 md:px-8 xl:px-12 w-full h-full"
               >
                 <img
-                  src={`${import.meta.env.BASE_URL}/assets/images/brands/${brandKey}.png`}
-                  alt=""
+                  src={brand.img_url}
+                  alt={brand.key}
                 />
               </div>
             ))}
