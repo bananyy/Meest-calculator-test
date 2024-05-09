@@ -1,29 +1,25 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = function(sequelize) {
-  const Brand = sequelize.define('Brand', {
-    brand_id: {
+  const SizeCountries = sequelize.define('SizeCountries', {
+    size_country_id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    brand_key: {
+    country_key: {
       type: DataTypes.STRING(50),
-      allowNull: false
+      allowNull: true
     },
-    brand_name: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
-    brand_img_url: {
+    country_name_UA: {
       type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {
-    tableName: 'brands',
+    tableName: 'size_countries',
     timestamps: false
   });
 
-  return Brand;
+  return SizeCountries;
 };
