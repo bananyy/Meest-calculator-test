@@ -31,8 +31,8 @@ router.get('/all-brands', async (req, res) => {
   }
 });
 
-router.post('/brands', async (req, res) => {
-  const { gender } = req.body;
+router.get('/brands', async (req, res) => {
+  const { gender } = req.query;
   try {
 
     const genderInfo = await models.genders.findOne({
@@ -66,8 +66,8 @@ router.post('/brands', async (req, res) => {
 });
 
 
-router.post('/clothes', async (req, res) => {
-  const { gender, brand } = req.body;
+router.get('/clothes', async (req, res) => {
+  const { gender, brand } = req.query;
 
   try { 
 
