@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = function(sequelize) {
   const Conversions = sequelize.define('Conversions', {
-    conversation_id: {
+    id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -40,7 +40,7 @@ module.exports = function(sequelize) {
       type: DataTypes.FLOAT,
       allowNull: true
     },
-    size_country_id: {
+    size_type_id: {
       type: DataTypes.INTEGER,
       allowNull: true
     },

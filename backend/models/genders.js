@@ -2,21 +2,21 @@ const { DataTypes } = require('sequelize');
 
 module.exports = function(sequelize) {
   const Genders = sequelize.define('Genders', {
-    gender_id: {
+    id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    gender_key: {
+    key: {
       type: DataTypes.STRING(50),
-      allowNull: false
+      allowNull: true
     },
-    gender_name: {
+    name: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: true
     },
-    gender_name_UA: {
+    name_UA: {
       type: DataTypes.STRING(255),
       allowNull: true
     }

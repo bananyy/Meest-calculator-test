@@ -1,7 +1,6 @@
 const config = require('./config');
 const { Sequelize, DataTypes } = require('sequelize');
 
-
 const sequelize = new Sequelize(process.env.DEVELOPMENT_DATABASE_NAME, process.env.DEVELOPMENT_DATABASE_USER, process.env.DEVELOPMENT_DATABASE_PASSWORD, {
     dialect: 'mysql',
     host: process.env.DEVELOPMENT_DATABASE_HOST,
@@ -10,6 +9,5 @@ const sequelize = new Sequelize(process.env.DEVELOPMENT_DATABASE_NAME, process.e
     connectionLimit: parseInt(process.env.DEVELOPMENT_DATABASE_CONNECTIONLIMIT),
     queueLimit: parseInt(process.env.DEVELOPMENT_DATABASE_QUEUELIMIT)
 });
-
 
 module.exports = sequelize;

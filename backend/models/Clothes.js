@@ -1,29 +1,29 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = function(sequelize) {
-  const ClothesDefinition = sequelize.define('ClothesDefinition', {
-    cloth_id: {
+  const Clothes = sequelize.define('Clothes', {
+    id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    cloth_key: {
+    key: {
       type: DataTypes.STRING(50),
-      allowNull: false
+      allowNull: true
     },
-    cloth_name: {
+    name: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: true
     },
-    cloth_name_UA: {
+    name_UA: {
       type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {
-    tableName: 'clothes_definition',
+    tableName: 'clothes',
     timestamps: false
   });
 
-  return ClothesDefinition;
+  return Clothes;
 };

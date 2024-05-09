@@ -1,30 +1,30 @@
-var DataTypes = require("sequelize").DataTypes;
-var Brands = require("./Brands");
-var ClothesData = require("./ClothesData");
-var ClothesDefinition = require("./ClothesDefinition");
-var Conversions = require("./Conversions");
-var Genders = require("./Genders");
-var SizeCountries = require("./SizeCountries");
+const sequelize = require('./../db_connection');
+
+const Brands = require("./Brands");
+const ClothesData = require("./ClothesData");
+const Clothes = require("./Clothes");
+const Conversions = require("./Conversions");
+const Genders = require("./Genders");
+const SizeTypes = require("./SizeTypes");
 
 function initModels(sequelize) {
-  var brands = Brands(sequelize);
-  var clothesData = ClothesData(sequelize);
-  var clothesDefinition = ClothesDefinition(sequelize);
-  var conversions = Conversions(sequelize);
-  var genders = Genders(sequelize);
-  var sizeCountries = SizeCountries(sequelize);
-
+  const brands = Brands(sequelize);
+  const clothesData = ClothesData(sequelize);
+  const clothes = Clothes(sequelize);
+  const conversions = Conversions(sequelize);
+  const genders = Genders(sequelize);
+  const sizeTypes = SizeTypes(sequelize);
 
   return {
     brands,
     clothesData,
-    clothesDefinition,
+    clothes,
     conversions,
     genders,
-    sizeCountries,
+    sizeTypes,
   };
 }
 
-module.exports = initModels;
-module.exports.initModels = initModels;
-module.exports.default = initModels;
+const models = initModels(sequelize);
+
+module.exports = models;

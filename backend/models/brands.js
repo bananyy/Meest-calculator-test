@@ -2,21 +2,21 @@ const { DataTypes } = require('sequelize');
 
 module.exports = function(sequelize) {
   const Brand = sequelize.define('Brand', {
-    brand_id: {
+    id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    brand_key: {
+    key: {
       type: DataTypes.STRING(50),
       allowNull: false
     },
-    brand_name: {
+    name: {
       type: DataTypes.STRING(255),
       allowNull: false
     },
-    brand_img_url: {
+    img_url: {
       type: DataTypes.STRING(255),
       allowNull: true
     }

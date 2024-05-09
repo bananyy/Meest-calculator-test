@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = function(sequelize) {
-  const SizeCountries = sequelize.define('SizeCountries', {
-    size_country_id: {
+  const SizeTypes = sequelize.define('Sizetypes', {
+    id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -10,16 +10,18 @@ module.exports = function(sequelize) {
     },
     country_key: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: true,
+      unique: true
     },
     country_name_UA: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
+      unique: true
     }
   }, {
     tableName: 'size_countries',
     timestamps: false
   });
 
-  return SizeCountries;
+  return SizeTypes;
 };
