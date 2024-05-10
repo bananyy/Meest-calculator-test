@@ -1,8 +1,6 @@
-const sequelize = require('../db_connection');
-var initModels = require("../models/init-models");
-var models = initModels(sequelize);
+const models = require('./../models/init-models');
 
-module.exports = async (req, res) => {
+module.exports = async (req, res, next, models) => {
     const brands = await models.brands.findAll();
     const transformedBrands = brands.map(brand => ({
         id: brand.id,

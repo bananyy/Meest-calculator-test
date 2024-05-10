@@ -2,7 +2,7 @@ const sequelize = require('../db_connection');
 var initModels = require("../models/init-models");
 var models = initModels(sequelize);
 
-module.exports = async (req, res) => {
+module.exports = async (req, res, next, models) => {
     const { gender, brand } = req.query;
     if (!gender || !brand) {
         return res.status(400).json({ error: 'Gender or brand parameter is missing' });
