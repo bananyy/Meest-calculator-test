@@ -17,24 +17,31 @@ export function CalcSection({ brands }) {
   const [selectedMetric, setselectedMetric] = useState("cm");
   const [showResultMenu, setShowResultMenu] = useState(false);
 
-  const [bodyParameters, setBodyParameters] = useState([]);
+  const [brandsByGender, setbrandsByGender] = useState([]);
+  const [clothesByBrand, setclothesByBrand] = useState([]);
+
+  useEffect(() => {
+    selectedGender != 'none' &&
+      fetchJson(`api/brands?gender=${selectedGender}`)
+        .then((data) => {
+          setbrandsByGender(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }, [selectedGender]);
 
   useEffect(() => {
     selectedBrand != 'none' &&
-      fetchJson("api/v1/bodyParameters")
+      fetchJson(`api/clothes?gender=${selectedGender}&brand=${selectedBrand}`)
         .then((data) => {
-          setBodyParameters(data);
-        })
+          setclothesByBrand(data);
+        })  
         .catch((err) => {
-          // handle errors
           console.log(err);
         });
-    // .finally(() => {
-
-    // });
   }, [selectedBrand]);
 
-  const isFilled = selectedBrand !== "none" && selectedCl !== "none";
   const handleSelectionChange = (newValue, setSelectedValue) => {
     if (newValue !== setSelectedValue) {
       setSelectedValue(newValue);
@@ -43,10 +50,15 @@ export function CalcSection({ brands }) {
   };
   const handleGenderClick = (type) => {
     handleSelectionChange(type, setSelectedGender);
+    setSelectedBrand('none');
+    setSelectedCl('none');
+    setclothesByBrand([])
   };
 
   const handleBrandChange = (brand) => {
     handleSelectionChange(brand, setSelectedBrand);
+    setSelectedCl('none');
+    setclothesByBrand([])
   };
   const handleClChange = (Cl) => {
     handleSelectionChange(Cl, setSelectedCl);
@@ -75,16 +87,12 @@ export function CalcSection({ brands }) {
         onClick={() => handleGenderClick(gender)}
         onChange={handleInputChange}
         isSelected={selectedGender === gender}
-        bodyParameters={bodyParameters}
+        bodyParameters={clothesByBrand.filter(obj => obj.key == selectedCl)[0]}
       />
     ));
   };
 
-  const brandKeys = brands.map((brand) => brand.key);
-  const brandNamesObj = brands.reduce((acc, curr) => ({ ...acc, [curr.key]: curr.name }), {
-    none: "Бренд",
-  });
-
+  const isFilled = selectedBrand !== "none" && selectedCl !== "none";
   const isCalcEnabled = isFilled;
 
   const handleCalc = () => {
@@ -122,19 +130,24 @@ export function CalcSection({ brands }) {
               <CustomSelect
                 value={selectedBrand}
                 onChange={handleBrandChange}
-                options={["none", ...brandKeys]}
-                translateMap={brandNamesObj}
+                options={["none", ...brandsByGender.map((brand) => brand.key)]}
+                translateMap={brandsByGender.reduce((acc, curr) => ({ ...acc, [curr.key]: curr.name }), {
+                  none: "Бренд",
+                })}
               />
               <CustomSelect
+                disabled={clothesByBrand.length == 0}
                 value={selectedCl}
                 onChange={handleClChange}
-                options={[...Object.keys(dataNames.clothesType)]}
-                translateMap={dataNames.clothesType}
+                options={["none", ...clothesByBrand.map(item => item.key)]}
+                translateMap={clothesByBrand.reduce((acc, curr) => {
+                  acc[curr.key] = curr.name_UA;
+                  return acc;
+                  }, {"none": "Тип одягу"})}
               />
             </div>
           </div>
           <div className="flex items-end mt-[60px] max-md:hidden">{personTypeElements()}</div>
-
           <div className="mt-[80px] xs:mt-[50px] md:hidden">
             <Slider
               onChange={handleCarouselChange}
@@ -149,7 +162,7 @@ export function CalcSection({ brands }) {
             <ModalResult
               onClickClose={() => setShowResultMenu(false)}
               gender={selectedGender}
-              clothesType={selectedCl}
+              clothesType={clothesByBrand.filter(obj => obj.key == selectedCl)[0]}
             />
           )}
         </div>

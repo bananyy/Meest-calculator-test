@@ -42,9 +42,9 @@ module.exports = async (req, res) => {
 
         if (clothDefinition) {
             clothesResponse.push({
-                cloth_key: clothDefinition.key,
-                cloth_name: clothDefinition.name,
-                cloth_name_UA: clothDefinition.name_UA,
+                key: clothDefinition.key,
+                name: clothDefinition.name,
+                name_UA: clothDefinition.name_UA,
                 body_parts: bodyParts
             });
         }

@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     const transformedBrands = brands.map(brand => ({
         id: brand.id,
         key: brand.key,
-        brand_name: brand.name,
+        name: brand.name,
         img_url: brand.img_url 
     }));
     res.json(transformedBrands);
