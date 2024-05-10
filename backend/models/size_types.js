@@ -1,31 +1,25 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('clothing_body_requirements', {
-    requirement_id: {
+  return sequelize.define('size_types', {
+    id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    clothing_type_id: {
-      type: DataTypes.INTEGER,
+    country_key: {
+      type: DataTypes.STRING(50),
       allowNull: true,
-      references: {
-        model: 'clothing_types',
-        key: 'type_id'
-      }
+      unique: "country_key"
     },
-    parameter_id: {
-      type: DataTypes.INTEGER,
+    country_name_UA: {
+      type: DataTypes.STRING(255),
       allowNull: true,
-      references: {
-        model: 'body_parameters',
-        key: 'parameter_id'
-      }
+      unique: "country_name_UA"
     }
   }, {
     sequelize,
-    tableName: 'clothing_body_requirements',
+    tableName: 'size_types',
     timestamps: false,
     indexes: [
       {
@@ -33,21 +27,23 @@ module.exports = function(sequelize, DataTypes) {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "requirement_id" },
+          { name: "id" },
         ]
       },
       {
-        name: "clothing_type_id",
+        name: "country_key",
+        unique: true,
         using: "BTREE",
         fields: [
-          { name: "clothing_type_id" },
+          { name: "country_key" },
         ]
       },
       {
-        name: "parameter_id",
+        name: "country_name_UA",
+        unique: true,
         using: "BTREE",
         fields: [
-          { name: "parameter_id" },
+          { name: "country_name_UA" },
         ]
       },
     ]

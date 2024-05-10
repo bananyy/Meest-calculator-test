@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { DescriptionInfo } from "../InfoContent/DescriptonInfo";
 import { BrandsInfo } from "../InfoContent/BrandsInfo";
 import { SwitchInfo } from "../InfoContent/SwitchInfo";
@@ -12,7 +12,7 @@ export function HomePage() {
   useEffect(() => {
     setIsBrandsLoading(true);
 
-    fetchJson("api/v1/brands")
+    fetchJson("api/all-brands")
       .then((data) => {
         setBrands(data);
       })
@@ -23,18 +23,6 @@ export function HomePage() {
         setIsBrandsLoading(false);
       });
 
-    // (async () => {
-    //   setIsBrandsLoading(true);
-    //   try {
-    //     const brands = await getBrands();
-    //     setBrands(brands);
-    //   } catch (err) {
-    //     // handle errors
-    //     console.log(err);
-    //   } finally {
-    //     setIsBrandsLoading(false);
-    //   }
-    // })();
   }, []);
 
 

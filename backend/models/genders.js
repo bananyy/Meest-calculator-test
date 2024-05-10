@@ -1,17 +1,21 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('genders', {
-    gender_id: {
+    id: {
       autoIncrement: true,
-      type: DataTypes.BIGINT.UNSIGNED,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    gender_category: {
+    key: {
       type: DataTypes.STRING(50),
       allowNull: true
     },
-    gender_name: {
+    name: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    name_UA: {
       type: DataTypes.STRING(255),
       allowNull: true
     }
@@ -25,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "gender_id" },
+          { name: "id" },
         ]
       },
     ]

@@ -32,7 +32,7 @@ export function ModalResult({ onClickClose, gender, clothesType }) {
             </div>
             <div className="flex justify-center items-center rounded-full gradient-background text-white h-[30px] w-[120px] md:h-[43px] md:w-[175px]">
               <p className="font-bold tracking-wider text-center">
-                {dataNames.clothesType[clothesType]}
+                {clothesType.name_UA}
               </p>
             </div>
           </div>

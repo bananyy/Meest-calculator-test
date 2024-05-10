@@ -1,15 +1,11 @@
 const inputPositions = {
-  men: {
+  male: {
     head_length: {
       top: "10.8%",
       left: "111.2%",
     },
     chest_length: {
       top: "29.2%",
-      left: "111.2%",
-    },
-    waist_length: {
-      top: "42.3%",
       left: "111.2%",
     },
     waist_length: {
@@ -33,17 +29,13 @@ const inputPositions = {
       left: "111.2%",
     },
   },
-  women: {
+  female: {
     head_length: {
       top: "14.2%",
       left: "107.5%",
     },
     chest_length: {
       top: "26.4%",
-      left: "107.5%",
-    },
-    waist_length: {
-      top: "39.5%",
       left: "107.5%",
     },
     waist_length: {
@@ -78,10 +70,6 @@ const inputPositions = {
     },
     waist_length: {
       top: "49.8%",
-      left: "110.5%",
-    },
-    waist_length: {
-      top: "49.7%",
       left: "110.5%",
     },
     hip_length: {
