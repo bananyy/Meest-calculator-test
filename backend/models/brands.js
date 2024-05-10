@@ -1,7 +1,6 @@
-const { DataTypes } = require('sequelize');
-
-module.exports = function(sequelize) {
-  const Brand = sequelize.define('Brand', {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('brands', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -10,20 +9,29 @@ module.exports = function(sequelize) {
     },
     key: {
       type: DataTypes.STRING(50),
-      allowNull: false
+      allowNull: true
     },
     name: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: true
     },
     img_url: {
       type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {
+    sequelize,
     tableName: 'brands',
-    timestamps: false
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "id" },
+        ]
+      },
+    ]
   });
-
-  return Brand;
 };

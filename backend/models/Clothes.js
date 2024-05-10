@@ -1,7 +1,6 @@
-const { DataTypes } = require('sequelize');
-
-module.exports = function(sequelize) {
-  const Clothes = sequelize.define('Clothes', {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('clothes', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -21,9 +20,18 @@ module.exports = function(sequelize) {
       allowNull: true
     }
   }, {
+    sequelize,
     tableName: 'clothes',
-    timestamps: false
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "id" },
+        ]
+      },
+    ]
   });
-
-  return Clothes;
 };

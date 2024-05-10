@@ -1,7 +1,6 @@
-const { DataTypes } = require('sequelize');
-
-module.exports = function(sequelize) {
-  const Genders = sequelize.define('Genders', {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('genders', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -21,9 +20,18 @@ module.exports = function(sequelize) {
       allowNull: true
     }
   }, {
+    sequelize,
     tableName: 'genders',
-    timestamps: false
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "id" },
+        ]
+      },
+    ]
   });
-
-  return Genders;
 };

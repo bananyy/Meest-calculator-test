@@ -1,4 +1,6 @@
-const models = require('./../models/init-models');
+const sequelize = require('../db_connection');
+var initModels = require("../models/init-models");
+var models = initModels(sequelize);
 
 module.exports = async (req, res) => {
     const { gender, brand } = req.query;
@@ -16,7 +18,7 @@ module.exports = async (req, res) => {
         return res.status(400).json({ error: 'Invalid brand key' });
     }
 
-    const clothesData = await models.clothesData.findAll({
+    const clothesData = await models.clothes_data.findAll({
         where: { gender_id: genderInfo.id, brand_id: brandInfo.id },
         attributes: ['uniq_cloth_id', 'cloth_id']
     });
