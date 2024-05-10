@@ -24,12 +24,13 @@ export function PersonInfo(props) {
             <>
               {bodyParameters.body_parts.map((item) => (
                 <img
-                  src={`${import.meta.env.BASE_URL}/assets/images/${gender}/parameters/${item}.png`}
+                  src={`${
+                    import.meta.env.BASE_URL
+                  }/assets/images/${gender}/parameters/${item}.png`}
                   className="absolute green-diagram-img appear-animation"
                   key={item}
                 />
-              ))
-              }
+              ))}
 
               {bodyParameters.body_parts.map((item) => (
                 <div

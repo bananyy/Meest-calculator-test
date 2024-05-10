@@ -6,7 +6,7 @@ export function Button({
   color = "rgb(40,211,161, 1)",
   bordercolor = "rgb(40, 211, 161, 0.6)",
   textcolor = "white",
-  disabled
+  disabled,
 }) {
   return (
     <button
