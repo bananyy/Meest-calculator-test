@@ -6,7 +6,7 @@ const sequelize = new Sequelize(
   process.env.DEVELOPMENT_DATABASE_USER,
   process.env.DEVELOPMENT_DATABASE_PASSWORD,
   {
-    dialect: "mysql",
+    dialect: "postgres",
     host: process.env.DEVELOPMENT_DATABASE_HOST,
     port: process.env.DEVELOPMENT_DATABASE_PORT,
     waitForConnections:
